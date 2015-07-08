@@ -1,0 +1,140 @@
+html,body{ height: 100%;background: #fff; collapse: #f66; font-size: 16px;}
+/*body{ font-size: 12px;}*/
+#mn{height:100%; color: #fff; }
+.loading{ color:#999; font-size: 1rem; line-height: 3rem; padding-top: 5rem; }
+.loading img{vertical-align: middle;}
+section{ border-top: .5rem solid #F66;}
+section .banner .pic-slider{ overflow: hidden; height: auto; position: relative; height: 24rem;}
+section .banner .pic-slider ul{ overflow: hidden; height: auto; }
+section .banner .pic-slider ul li{ overflow: hidden; height: auto;}
+section .banner .pic-slider .ctrl{ position: absolute; z-index: 99; bottom: .5rem; width: 100%; text-align: center;}
+section .banner .pic-slider .ctrl a{ display: inline-block; width: .5rem; height: .5rem; margin: .2rem; background: #f66; text-indent: -999rem; border-radius:.35rem; }
+section .banner .pic-slider .ctrl a.cur{ margin: .1rem; border: .1rem solid #F66; background: #fff;}
+section .banner img{ width: 100%;}
+section h2{ border-top: .1rem solid #f66; font-weight: 500; color: #f66; font-size: 1.2rem; line-height: 2.4rem; padding: 0 .5rem; text-align: center;}
+section h2 em{ font-size: .6rem; line-height: .8rem; vertical-align: middle;}
+section h2.red{ background: #f66; color: #fff; text-align: left;}
+ul{ height: auto; overflow: hidden;}
+ul.detail li{ margin: 0 auto; width: 19rem; padding: .5rem 1rem; height: auto; overflow: hidden; background:#fff; line-height: 1.8rem; color:#6c6c6c; border-bottom: 1px dashed #dbdbdb;}
+ul.detail li.bt-none{ border-bottom: none;}
+ul.detail li.top-line{ border-top:.2rem solid #f4f5f7;}
+ul.detail li span{float:left; width: 5rem;}
+ul.detail li span.more{float:right; width: 1.6rem; font-size: 1.6rem; height: 1.6rem; line-height: 1.5rem; border: 1px solid #e3e3e3; color: #e3e3e3; border-radius: .8rem; text-align: center;}
+ul.detail li span.more:hover{ cursor: pointer;}
+/*ul.detail li div{float:right; width: 13rem;}*/
+ul.detail li>p{float:right; width: 13rem;}
+ul.detail li div.m{float:right; width: 13rem; margin: 0 2rem 0 6rem; float: none; width: auto;}
+ul.detail li div.m.more{ display: none;}
+ul.detail li div em{ color: #333;}
+ul.detail li q{ display: inline-block; height: 1.42rem;}
+ul.detail li q em{ display: inline-block; width: 2rem; height: 1rem; border: .2rem solid rgba(255,255,255,.5);}
+ul.pic-list{ color:#333;}
+ul.pic-list li img{ width: 100%;}
+ul.pic-list li p{ line-height: 1.5rem;}
+ul.pic li { position: relative; padding: 1rem 0;}
+ul.pic li span.img{ display: block; margin: 0 auto; width: 15rem; height: 15rem; overflow: hidden; border-radius: 7.5rem; border:.3rem solid #fddedc;}
+ul.pic li span.img img{ width: 100%;}
+ul.pic li span.t{ display: block; position: absolute; width: 2rem; padding: 1rem 2rem; height: 4rem; text-align: center; background: #f66; color: #fff; border-radius: 4rem; font-size: 2rem;}
+ul.pic li.l span.t{ right: 1rem; top: 10rem;}
+ul.pic li.r span.t{ left: 1rem; top: 0;}
+ul.pic li:before{ display: block; position: absolute; z-index: -1; width: 5rem; height: 5rem; content: ''; background: #f66; border-radius: 2.5rem;}
+ul.pic li.l:before{ left: 1.3rem; top: 1.3rem;}
+ul.pic li.r:before{ right:1.3rem; top: 9.7rem;}
+ul.pic li p{ position: relative; padding: 1rem 3rem 2rem 5rem; line-height: 1.5rem; color: #f66;}
+ul.pic li p:before{ position: absolute; line-height: 1rem; padding: .2rem; left: 2rem;  content: '细节'; background: #f66; color:#fff;}
+ul.pic-2 li,ul.pic-2 div{float:left; width: 50%;background: #f66; color:#fff; height: 13rem; overflow: hidden;}
+ul.pic-2 li img{ width: 100%;}
+ul.pic-2 li p { padding: 5.5rem 1rem;}
+ul.pic-2 li p em{ display: block;  font-size: .6rem; line-height: 1rem;}
+ul.pic-2 li p.multi{height: 11rem; padding: 1rem 1rem; line-height: 1.2rem; position: relative;}
+ul.pic-2 li p.multi em{ position: absolute; bottom: 1rem;}
+ul.pic-2 li.l,ul.pic-2 div.l{ text-align: right;}
+ul.pic-2 li.r,ul.pic-2 div.r{ text-align: left;}
+ul.pic-3{ padding: 1rem .5rem 3rem;}
+ul.pic-3 li{float:left; width: 5.3rem; height: auto; padding: 0 .5rem; overflow: hidden; text-align: center;}
+ul.pic-3 li img{ width: 100%;}
+ul.pic-3 li img.bd{ width: 3rem; border: .1rem solid #f66; border-radius: 1.7rem; overflow: hidden;}
+ul.pic-3 li p{ text-align: center; color:#f66; line-height: 1.5rem; font-size: .8rem;}
+ul.pic-3 li p em{ display: block;}
+ul.pic-3 li p span{ display: block; color:#333;}
+.flash{ width:100%; height: 16rem;}
+.color-list{}
+.color-list .full,.color-list .ctrl{ overflow: hidden;word-break: keep-all; white-space: nowrap;}
+.color-list .full img{display: inline-block; width: 100%;}
+.color-list .ctrl { margin: .5rem auto; width: 20rem; overflow: hidden; text-align: center;}
+.color-list .ctrl li{ display: inline-block; text-indent: 0; width: 3.26rem; height: 3.26rem; margin: .4rem; border-style: solid; border-width:0; border-radius: 1.8rem; overflow: hidden;}
+.color-list .ctrl li.cur{ border-width:.2rem; margin: .2rem;}
+.color-list .ctrl li img{width: 100%;}
+.color-list .ctrl li.cur img{ margin: -.1rem 0 0 -.1rem;}
+.bdc00{border-color:#000;}
+.bdc01{border-color:#efefef;}
+.bdc02{border-color:#F00;}
+.bdc03{border-color:#F99;}
+.bdc04{border-color:#FDDF03;}
+.bdc05{border-color:#9C0;}
+.bdc06{border-color:#00F;}
+.bdc07{border-color:#39F;}
+.bdc08{border-color:#60F;}
+.bdc09{border-color:#C9F;}
+.bdc10{border-color:#963;}
+.bdc11{border-color:#FF6D00;}
+.bdc12{border-color:#999;}
+.bdc13{border-color:#D3D3D3;}
+
+.bgc00{background-color:#000;}
+.bgc01{background-color:#efefef;}
+.bgc02{background-color:#F00;}
+.bgc03{background-color:#F99;}
+.bgc04{background-color:#FDDF03;}
+.bgc05{background-color:#9C0;}
+.bgc06{background-color:#00F;}
+.bgc07{background-color:#39F;}
+.bgc08{background-color:#60F;}
+.bgc09{background-color:#C9F;}
+.bgc10{background-color:#963;}
+.bgc11{background-color:#FF6D00;}
+.bgc12{background-color:#999;}
+.bgc13{background-color:#D3D3D3;}
+i{ display: inline-block; height: 1.4rem; line-height: 1.4rem; font-style: normal; color: #fff; padding: 0 .5rem; border-radius: .8rem;}
+/*'C000':'yellow',//出游
+'C001':'blue',//职场
+'C002':'violet',//约会
+'C003':'yellow',//日常
+'C004':'red',//宴会
+'C005':'red'//婚礼*/
+i.C000{ background: #feb044;}
+i.C001{ background: #56b4d0;}
+i.C002{ background: #b592e2;}
+i.C003{ background: #feb044;}
+i.C004{ background: #f66;}
+i.C005{ background: #f66;}
+
+.pic-box{ position: fixed; top: 0; left: 0; z-index: 999; width: 100%; height: 100%; background: rgba(0,0,0,1);}
+.pic-box ul{ height: 100%; overflow: hidden;word-break: keep-all; white-space: nowrap; line-height: 34rem; vertical-align: middle; }
+.pic-box ul img{ width: 100%; vertical-align: middle;}
+.pic-box ol{ position: absolute; bottom: 0; left: 0; width: 100%; padding: 1rem 0; line-height: 1.5rem; z-index: 999; background: rgba(0,0,0,.5); color:#fff;word-break: keep-all; white-space: nowrap;}
+.pic-box ol p{ display: inline-block; width: 90%; padding: 0 5%; text-indent: 0;word-break: normal; white-space: normal;}
+.pic-box .num{ position: absolute; top: 0; right: 0; color: #fff; padding: 1rem;}
+
+@media screen and (max-width: 280px) {html,body{ font-size: 12px;}}
+@media screen and (min-width: 280px) and (max-width: 300px) {html,body{ font-size: 13px;}}
+@media screen and (min-width: 300px) and (max-width: 320px) {html,body{ font-size: 14px;}}
+@media screen and (min-width: 320px) and (max-width: 340px) {html,body{ font-size: 15px;}}
+@media screen and (min-width: 340px) and (max-width: 360px) {html,body{ font-size: 16px;}}
+@media screen and (min-width: 360px) and (max-width: 370px) {html,body{ font-size: 17px;}}
+@media screen and (min-width: 370px) and (max-width: 380px) {html,body{ font-size: 17px;}}
+@media screen and (min-width: 380px) and (max-width: 400px) {html,body{ font-size: 18px;}}
+@media screen and (min-width: 400px) and (max-width: 420px) {html,body{ font-size: 19px;}}
+@media screen and (min-width: 420px) and (max-width: 440px) {html,body{ font-size: 20px;}}
+@media screen and (min-width: 440px) and (max-width: 460px) {html,body{ font-size: 21px;}}
+@media screen and (min-width: 460px) and (max-width: 480px) {html,body{ font-size: 22px;}}
+@media screen and (min-width: 480px) and (max-width: 500px) {html,body{ font-size: 23px;}}
+@media screen and (min-width: 500px) and (max-width: 520px) {html,body{ font-size: 24px;}}
+@media screen and (min-width: 520px) and (max-width: 540px) {html,body{ font-size: 25px;}}
+@media screen and (min-width: 540px) and (max-width: 560px) {html,body{ font-size: 26px;}}
+@media screen and (min-width: 560px) and (max-width: 580px) {html,body{ font-size: 27px;}}
+@media screen and (min-width: 580px) and (max-width: 600px) {html,body{ font-size: 28px;}}
+@media screen and (min-width: 600px) and (max-width:1024px) {html,body{ font-size: 30px;}}
+@media screen and (min-width:1024px) and (max-width:1280px) {html,body{ font-size: 48px;}}
+@media screen and (min-width:1280px) and (max-width:1440px) {html,body{ font-size: 64px;}}
+@media screen and (min-width:1440px) {html,body{ font-size: 64px;}}

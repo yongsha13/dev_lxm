@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>产品图库</title>
+    <link rel="stylesheet" href="../public/css/reset.css"/>
+    <link rel="stylesheet" href="./css/common.css"/>
+</head>
+<body>
+<div id="mn">
+    <div class="loading"><img src="./images/loading.gif" alt=""/>正在加载页面，请稍候...</div>
+</div>
+<script src="../public/js/jquery-1.7.2.js"></script>
+<script src="./js/jsrender.js"></script>
+<script src="./js/jquery.event.drag-1.5.min.js"></script>
+<script src="./js/jquery.touchSlider.js"></script>
+<script src="./js/tpl.js"></script>
+<script src="./js/common.js"></script>
+<script>
+    var params = {
+        prodId: null,
+        hairId: 1,
+        ajaxUrl:'http://192.168.1.165:8088/binf/productInformation/',
+        imgUrl:'http://192.168.1.165:8088/binf/'
+    }
+</script>
+</body>
+</html>

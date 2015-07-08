@@ -1,0 +1,77 @@
+﻿html,body{background: #f1d6cb; font-size: 16px;}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder{color:#bc4a5f;}
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder{ color: #e5c7bd;}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background:#ecd5cd;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #f8f0ed;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #f8f0ed;
+}
+
+/*body{ font-size: 12px;}*/
+#mn{height:100%; color: #bc4a5f;  padding: 0; margin: 0;}
+#mn>div{display: none;}
+section{ height: auto; overflow: hidden; padding-top: 7rem; line-height: 2rem; background: url(../images/bg.jpg) no-repeat; background-size: 100%;}
+
+section p{ margin: 0 auto; font-size: .9rem; width: 19rem; text-align: center;}
+section h1,section h2{ text-align: center; font-size: 2rem; font-weight: 500; line-height: 3rem;}
+section h2{ font-weight: 700;  font-family: cursive}
+section .item{ margin:.5rem auto;  width: 19rem; height: 3rem; /*overflow: hidden;*/ border: 1px solid rgba(255,255,255,.5); font-size: 1.2rem;}
+section .item label{float:left; vertical-align: middle; line-height: 3rem; font-size: 1rem; width: 6rem; text-align: center; color: #e49696;}
+section .item input.ipt{float:right; vertical-align: middle;  height: 2rem; padding: .5rem; font-size: 1rem; line-height: 2rem; width: 12rem; background: #e5c7bd; border: none; color:#ca3e5b;}
+section .item textarea{float:right;  vertical-align: middle; height: 6rem; padding: .5rem; font-size: 1rem; line-height: 2rem; width: 12rem; background: #e5c7bd; border: none; color:#ca3e5b;}
+section .item a.submit{ display: block; width: 100%; height: 3rem; line-height: 3rem; text-align: center;}
+section .item a.submit:hover{ text-decoration: none;}
+section .pic { width: 20rem; margin: 0 auto; overflow: hidden;}
+section .pic li{float:left; width: 3.5rem; height: 3.6rem; margin: .25rem; overflow: hidden; position: relative; }
+section .pic li:after{ content: ''; display: block; position: absolute; width: 1rem; height: 1rem; top: .1rem; right: .1rem; z-index: 999; background: url(../images/close.png) no-repeat; background-size: 100% 100%; }
+section .pic li.add{}
+section .pic li.add:after{ background: none;}
+section .pic li img{ width: 95%; }
+section p{ font-size: .8rem; line-height: 1.5rem;}
+/**/
+
+.select-mod{ vertical-align: middle; margin: -1rem 0; width: 12rem; height: 2.5rem; display: inline-block; overflow: visible; position: relative;}
+.select-mod .ti{ line-height: 3rem; color:#ca3e5b;}
+.select-mod .ti em{ display: inline-block; font-size:1rem; width: 10rem; height: 3rem; vertical-align: middle; text-align: center;}
+.select-mod .ti span{ display: inline-block; vertical-align: middle; width: 2rem; height: 3rem; font-family: "宋体";}
+.select-mod ul{ width: 100%; display: none; border:1px solid #fff; background: #e5c7bd; border-radius: 0 0 5px 5px; }
+.select-mod li { text-align: center; font-size:1rem;}
+.select-mod ul li a{ display: block; line-height: 2rem; padding: 0 10px; color:#ca3e5b;}
+.select-mod ul li a:hover{ display: block; line-height: 2rem; background: #f1d6cb; text-decoration: none;}
+
+.radio-mod{ display: inline-block; width: 12rem; margin: -.65rem 0 -.35rem; height: 3rem; vertical-align: middle;  overflow: hidden;}
+.radio-mod span{ display: inline-block;  width: 5.5rem; height: 3rem; line-height: 3rem; text-align: center;}
+.radio-mod .active{ background: #fff; color:#333;}
+@media screen and (max-width: 280px) {html,body{ font-size: 12px;}}
+@media screen and (min-width: 280px) and (max-width: 300px) {html,body{ font-size: 13px;}}
+@media screen and (min-width: 300px) and (max-width: 320px) {html,body{ font-size: 14px;}}
+@media screen and (min-width: 320px) and (max-width: 340px) {html,body{ font-size: 15px;}}
+@media screen and (min-width: 340px) and (max-width: 360px) {html,body{ font-size: 16px;}}
+@media screen and (min-width: 360px) and (max-width: 370px) {html,body{ font-size: 17px;}}
+@media screen and (min-width: 370px) and (max-width: 380px) {html,body{ font-size: 17px;}}
+@media screen and (min-width: 380px) and (max-width: 400px) {html,body{ font-size: 18px;}}
+@media screen and (min-width: 400px) and (max-width: 420px) {html,body{ font-size: 19px;}}
+@media screen and (min-width: 420px) and (max-width: 440px) {html,body{ font-size: 20px;}}
+@media screen and (min-width: 440px) and (max-width: 460px) {html,body{ font-size: 21px;}}
+@media screen and (min-width: 460px) and (max-width: 480px) {html,body{ font-size: 22px;}}
+@media screen and (min-width: 480px) and (max-width: 500px) {html,body{ font-size: 23px;}}
+@media screen and (min-width: 500px) and (max-width: 520px) {html,body{ font-size: 24px;}}
+@media screen and (min-width: 520px) and (max-width: 540px) {html,body{ font-size: 25px;}}
+@media screen and (min-width: 540px) and (max-width: 560px) {html,body{ font-size: 26px;}}
+@media screen and (min-width: 560px) and (max-width: 580px) {html,body{ font-size: 27px;}}
+@media screen and (min-width: 580px) and (max-width: 600px) {html,body{ font-size: 28px;}}
+@media screen and (min-width: 600px) and (max-width:1024px) {html,body{ font-size: 30px;}}
+@media screen and (min-width:1024px) and (max-width:1280px) {html,body{ font-size: 48px;}}
+@media screen and (min-width:1280px) and (max-width:1440px) {html,body{ font-size: 64px;}}
+@media screen and (min-width:1440px) {html,body{ font-size: 64px;}}

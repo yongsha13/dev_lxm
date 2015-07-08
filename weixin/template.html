@@ -1,0 +1,135 @@
+<div id="start">
+    <section>
+        <img src="./images/banner.png" alt=""/>
+        <p>女王陛下，<span>IPAD AIR2</span>准备好了，<span>免费盘发</span>券也准备好了，就等你来宠幸！</p>
+        <a class="btn blue" href="#/index/detail">春夏新品抢先看！</a>
+        <a class="btn red js-luck" href="#/index/game">我要中奖</a>
+        <a class="btn none" href="#/index/rule">活动细则</a>
+    </section>
+    <section class="ticket" style="display: none;">
+        <a class="btn blue" href="javascript:;">我的免费券</a>
+        <p class="blue js-ticket" style="padding:2rem 0;">
+            你有<em>0</em>张免费券<br>
+            <a class="btn none" href="#/index/game">获取免费券</a>
+        </p>
+        <a class="btn none js-ticket" style="height: auto;" href="#"><img src="./images/ticket-1.jpg" alt=""/></a>
+        <a class="btn red" href="javascript:;">我的抽奖机会</a>
+        <p class="blue">你还有<em class="js-luck-num">0</em>次机会</p>
+
+        <p class="blue js-luck-cnt">分享链接，拉动好友进行游戏，获取更多抽奖机会！</p>
+        <a class="btn none js-luck-cnt" href="#/index/close">马上抽奖</a>
+    </section>
+</div>
+<div id="detail">
+    <div class="mask"><img src="./images/product-bg.png" alt=""/></div>
+    <div class="produce" data-num="0"><img src="./images/product-line.jpg" alt=""/></div>
+    <div class="title">
+        <span>偏爱</span>
+    </div>
+    <div class="cnt">
+        <a class="luck" href="#/index/game">我<br>要<br>抽<br>奖</a>
+        <section>
+            <p>对所爱的情有独钟<br>被偏爱的有恃无恐<br>这就是我<br>欣赏最精彩的自己</p>
+            <p>花心摇曳，姿态万千<br>留白式的设计简洁明了<br>配以施华洛水晶<br>迷离中暗藏一番清新雅趣<br>轻盈令人难忘</p>
+        </section>
+    </div>
+</div>
+<div id="game">
+    <section>
+        <div class="ti">玩法</div>
+        <p>动一动你的手指，移动九块拼图，以最快速度还原流行美夏新品，拼对就能去拆红包，IPAD AIR2、流行美限量发夹、护肤礼品套装等你拿。</p>
+    </section>
+    <div class="puzz">
+        <div class="bg"></div>
+    </div>
+    <div class="block bk1"></div>
+    <div class="block bk2"></div>
+    <div class="block bk3"></div>
+    <div class="block bk4"></div>
+    <div class="block bk5"></div>
+    <div class="block bk6"></div>
+    <div class="block bk7"></div>
+    <div class="block bk8"></div>
+    <div class="block bk9"></div>
+    <section class="win" style="display: none;">
+        <h1>挑战成功！</h1>
+        <p>恭喜您获得<em>免费盘发或化妆券</em>一张及<em>女王之花红包</em>一个！</p>
+        <a class="btn none" href="javascript:;"><img src="./images/ticket-1.jpg" alt=""/></a>
+        <a class="btn none js-btn-red" href="javascript:;"><img src="./images/red-1.png" alt=""/></a>
+    </section>
+</div>
+<div id="nowin">
+    <img width="100%" src="./images/nowin.jpg" alt=""/>
+    <section>
+        <p>分享链接，拉动好友进行游戏，每拉动一位参与即可获得多一次抽奖机会，更多好友参与，获得红包更多，中奖机会更大！</p>
+        <a class="btn none" href="#/index/start/lib">查看<em>【我的礼品库】</em></a>
+    </section>
+</div>
+<div id="gift">
+    <section class="win">
+        <h1>恭喜您！</h1>
+        <p>获得<em>流行美彩妆护肤套装</em>一套！</p>
+        <a class="btn none" href="javascript:;"><img src="./images/gift-2.png" alt=""/></a>
+        <a class="btn red" href="#/index/sign">登记领奖资料</a>
+    </section>
+    <section class="win" style="display: none;">
+        <h1>恭喜您！</h1>
+        <p>获得<em>iPAD Air2</em>一台！</p>
+        <a class="btn none" href="javascript:;"><img src="./images/gift-1.png" alt=""/></a>
+        <a class="btn red" href="#/index/sign">登录领奖资料</a>
+    </section>
+</div>
+<div id="sign">
+    <section class="win">
+        <h1>登记资料</h1>
+
+        <form action="">
+            <label for="">姓名</label>
+            <input class="js-form-name" type="text" name="name"/>
+            <label for="">手机号码</label>
+            <input class="js-form-mobile" type="text" name="mobile"/>
+            <label for="">收件地址</label>
+            <input class="js-form-address" type="text" name="address" placeholder="X省X市X区（县）X路X号"/>
+            <p>* 请认真填写个人中文姓名、真实无误的手机号码、详细的收件地址；</p>
+            <p>* 活动结束后15个工作日由主办方统一寄出，请耐心等待。</p>
+            <a class="btn red js-form-submit" href="javascript:;">提交</a>
+        </form>
+    </section>
+    <section class="win tks" style="display: none">
+        <p>
+            好运气就不要让它停，
+            动动手指，呼朋唤友玩游戏，继续赢礼品~
+            <a href="#/index/start/lib">查看<em>【我的礼品库】</em></a>，看看还有什么惊喜！
+        </p>
+    </section>
+</div>
+<div id="rule">
+    <h1>活动细则</h1>
+    <h2>【活动时间】<br>2015年4月25日-5月10日</h2>
+    <h2>【怎么玩】</h2>
+    <p>1.关注“流行美玫瑰会所”官方微信号，进入【瑰蜜福利】-【女王驾到】活动页面；</p>
+    <p>2.选择浏览“女王之花”新品系列，抢先获取本季最新最时尚产品资讯；</p>
+    <p>3.进入游戏界面，移动九块拼图，还原流行美春夏新品图片；</p>
+    <p>4.凡参与游戏，均可获得到店免费盘发或化妆机会一次；</p>
+    <p>5.拼对图片，马上获得抽奖机会一次；</p>
+    <p>6.一张“免费盘发或化妆券”只能享受免费服务一次，重复使用无效。</p>
+    <h2>【呼朋唤友】</h2>
+    <p>分享活动链接给好友，拉动好友进行游戏，每拉动一位好友参与即可获得多一次抽奖机会，更多好友参与，抽奖次数更多，中奖机会更大哦~</p>
+    <h2>【奖品】</h2>
+    <p>一等奖(5名)：iPad Air 2（价值¥4500）<br>
+        二等奖(100名)：流行美申遗版限量发饰（价值¥699 ）<br>
+        三等奖(1000名)：流行美彩妆护肤套装（价值¥347 ）</p>
+    <h2>【怎么领】</h2>
+    <p>1.免费盘发或化妆券：请到离您最近的流行美实体店出示图片即可体验；</p>
+    <p>2.实物奖品：在活动结束后15个工作日由主办方统一寄出，请耐心等待。</p>
+    <p>* 在法律法规允许范围内，流行美对本次活动的条款做出适当调整和解释。</p>
+</div>
+<div id="close"></div>
+<div id="open"></div>
+<div id="error">
+    <section class="win">
+        <h1>出错啦！</h1>
+        <p class="js-error-msg-cnt">页面请求出错</p>
+        <a class="btn blue" href="javascript:history.go(-1);">返回</a>
+    </section>
+</div>

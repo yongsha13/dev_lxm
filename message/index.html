@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>流行美玫瑰会所</title>
+    <link rel="stylesheet" href="../public/css/reset.css"/>
+    <link rel="stylesheet" href="./css/common.css"/>
+</head>
+<body>
+<div id="mn">
+    <section>
+        <div class="item">
+            <label for="advice">留言类型</label>
+            <select class="select" name="advice" id="advice">
+                <option value="1">建议</option>
+                <option value="2">投诉</option>
+                <option value="3">产品</option>
+                <option value="4">咨询</option>
+                <option value="5">活动</option>
+            </select>
+        </div>
+        <div class="item">
+            <label for="name">姓名</label>
+            <input class="ipt" type="text" id="name" placeholder="张三/张小姐/张先生"/>
+        </div>
+        <div class="item">
+            <label for="contact">联系方式</label>
+            <input class="ipt" type="text" id="contact" placeholder="手机/QQ/Email"/>
+        </div>
+        <div class="item" style=" height: 7rem;">
+            <label for="notice">留言内容</label>
+            <textarea name="notice" id="notice" placeholder="请输入留言"></textarea>
+        </div>
+        <ul class="pic">
+            <li><img src="./images/photo-1.jpg" alt=""/></li>
+            <li class="add"><img src="./images/add.png" alt=""/></li>
+        </ul>
+        <div class="item"><a href="javascript:;" class="submit">提交</a></div>
+    </section>
+    <section style="display: none;">
+        <p style="text-align: left;">
+            亲爱的，您的留言玫瑰姐已收到，亲切的客服MM将会在五个工作日内联系您，为您解决所有难题，请耐心等待哦。
+        </p>
+        <p style="text-align: center;">
+            客服MM工作时间：<br>
+            星期一至五<br>
+            早上9:30-12:00<br>
+            下午1:30- 5:00<br>
+            <br>
+            服务热线：<br>
+            4006682293<br>
+            <br>
+            欢迎您再向我们提供宝贵的意见哦！
+        </p>
+    </section>
+</div>
+<script src="../public/js/jquery-1.7.2.js"></script>
+<script src="./js/common.js"></script>
+<script>
+    var params = {
+        openid:''
+    }
+</script>
+</body>
+</html>

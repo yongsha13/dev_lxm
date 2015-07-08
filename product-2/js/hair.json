@@ -1,0 +1,185 @@
+{
+  "hairSteps": [
+    {
+      "id": 1,
+      "hairId": 2,
+      "stepTitle": "步骤细节",
+      "stepContent": "盘发步骤"
+    }
+  ],
+  "data": {
+    "status": 0,
+    "hairdoName": "测试发型",
+    "hairdoCode": "11122",
+    "forHairQualityType": 22,
+    "mainPic": "uploads/hair/effect/1435307792090.jpg",
+    "forHariQuantityType": null,
+    "hairId": 2,
+    "suitPeoples": 0,
+    "vedioTeachPath": "啊啊啊",
+    "hairdoType": null,
+    "forFaceType": null,
+    "isRecommend": null,
+    "hairdoDesc": "测试发型"
+  },
+  "resultCode": "0000",
+  "relProducts": [
+    {
+      "weight": 44,
+      "orderFlag": 44,
+      "saleStatus": 44,
+      "ramark": "66",
+      "addUser": "1",
+      "mainBarCode": "5555",
+      "brandId": 5555,
+      "firstCateId": "555",
+      "story": "测试产品",
+      "excellence": "44",
+      "orderMeetingFlag": 44,
+      "length": null,
+      "proCateId": 4,
+      "saleDate": "2015-06-25 00:00:00",
+      "quickCode": "5555",
+      "technics": "55",
+      "modifyTime": "2015-06-26 18:32:54",
+      "fromType": 44,
+      "pkgUnitNum": 44,
+      "PCateId": null,
+      "productOutCode": "aaa",
+      "width": null,
+      "schemaId": 555,
+      "objectUsersDesc": "44",
+      "materialTypeId": 55555,
+      "productId": 2,
+      "ext5": "77",
+      "ext6": "66",
+      "advantage": "44",
+      "price": 66,
+      "ext1": "uploads/product/product/1435307690160.jpg",
+      "ext2": "红色",
+      "secondCateId": "5555",
+      "ext3": "0",
+      "modifyUser": "lili",
+      "ext4": "77",
+      "pkgUnit": 44,
+      "productName": "测试",
+      "seriesId": 5555,
+      "addTime": "2015-06-29 13:56:50"
+    }
+  ],
+  "hairEffects": [
+    {
+      "mediaId": 5,
+      "mediaDetailDesc": "",
+      "mediaName": "正面图",
+      "addUser": "1",
+      "mediaCode": "104001",
+      "savePath": "uploads/hair/effect/1435307792090.jpg",
+      "mediaShortDesc": "",
+      "srcType": 1,
+      "storageType": 1,
+      "mediaTypeId": 5,
+      "srcObjId": 2,
+      "srcObjCode": "11122",
+      "addTime": "1970-01-01 16:37:27"
+    }
+  ],
+  "resultMes": "成功",
+  "hairFaces": [
+    {
+      "labelTypeId": 4,
+      "labelName": "",
+      "labelCode": "H1000001",
+      "labelId": 6,
+      "useStatus": 0
+    },
+    {
+      "labelTypeId": 4,
+      "labelName": "",
+      "labelCode": "H1000002",
+      "labelId": 7,
+      "useStatus": 0
+    }
+  ],
+  "hairTypes": [
+    {
+      "labelTypeId": 3,
+      "labelName": "",
+      "labelCode": "H700001",
+      "labelId": 4,
+      "useStatus": 0
+    },
+    {
+      "labelTypeId": 3,
+      "labelName": "",
+      "labelCode": "H700002",
+      "labelId": 5,
+      "useStatus": 0
+    }
+  ],
+  "hairAmounts": [
+    {
+      "labelTypeId": 5,
+      "labelName": "",
+      "labelCode": "H900001",
+      "labelId": 8,
+      "useStatus": 0
+    },
+    {
+      "labelTypeId": 5,
+      "labelName": "",
+      "labelCode": "H900002",
+      "labelId": 9,
+      "useStatus": 0
+    }
+  ],
+  "hairScenes": [
+    {
+      "labelTypeId": 2,
+      "labelName": "出游",
+      "labelCode": "000",
+      "labelId": 2,
+      "useStatus": 0
+    },
+    {
+      "labelTypeId": 2,
+      "labelName": "职场",
+      "labelCode": "001",
+      "labelId": 3,
+      "useStatus": 0
+    }
+  ],
+  "hairLongs": [
+    {
+      "labelTypeId": 6,
+      "labelName": "",
+      "labelCode": "H800001",
+      "labelId": 10,
+      "useStatus": 0
+    },
+    {
+      "labelTypeId": 6,
+      "labelName": "",
+      "labelCode": "H800002",
+      "labelId": 11,
+      "useStatus": 0
+    }
+  ],
+  "hairDetails": [
+    {
+      "mediaId": 6,
+      "mediaDetailDesc": "",
+      "mediaName": "细节图1",
+      "addUser": "1",
+      "mediaCode": "104001",
+      "savePath": "uploads/hair/supplement/1435307805195.jpg",
+      "mediaShortDesc": "",
+      "srcType": 1,
+      "storageType": 1,
+      "mediaTypeId": 6,
+      "srcObjId": 2,
+      "srcObjCode": "11122",
+      "addTime": "1970-01-01 16:37:27"
+    }
+  ]
+}

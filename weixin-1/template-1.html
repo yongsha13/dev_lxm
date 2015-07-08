@@ -1,0 +1,71 @@
+<div id="step-0">
+    <section>
+        <img class="bg" src="./images/step-0.jpg" alt=""/>
+        <a class="js-next-step" href="#/step/1"></a>
+    </section>
+</div>
+<div id="step-1">
+    <section>
+        <img class="bg" src="./images/step-1.jpg" alt=""/>
+        <a class="js-next-step" href="#/step/2"></a>
+    </section>
+</div>
+<div id="step-2">
+    <section>
+        <img class="bg" src="./images/step-2.jpg" alt=""/>
+        <a class="js-next-step" href="#/step/3"></a>
+    </section>
+</div>
+<div id="step-3">
+    <section>
+        <img class="bg" src="./images/step-3.jpg" alt=""/>
+        <a class="js-next-step" href="#/step/4"></a>
+    </section>
+</div>
+<div id="step-4">
+    <section>
+        <img class="bg" src="./images/ti-bg.jpg" alt=""/>
+
+        <form action="">
+            <span>姓名</span>
+            <input class="ipt" type="text" name="name" id="name"/>
+            <span>性别</span>
+            <span>
+                <input type="radio" name="sex" value="1" id="sex-1"/><label for="sex-1">男</label>
+                <input type="radio" name="sex" value="0"id="sex-0"/><label for="sex-0">女</label>
+            </span>
+            <span>手机</span>
+            <input class="ipt" type="text" id="mobile" name="mobile"/>
+            <span class="error" style="display: none;">手机号码不正确</span>
+            <span>地址</span>
+            <input class="ipt" type="text" id="address" name="address"/>
+            <span>从事行业</span>
+            <select class="ipt" name="hangye" id="hangye">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <span>意向地区</span>
+            <select class="ipt" name="dir" id="dir">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <a class="btn red js-submit" href="#name">提交</a>
+        </form>
+        <a class="btn red js-show" href="#/step/5">查看礼品券</a>
+        <img class="bg bd-top" src="./images/bt-bg.jpg" alt=""/>
+    </section>
+</div>
+<div id="step-5">
+    <section>
+        <img class="bg" src="./images/step-5.jpg" alt=""/>
+        <p>以下是您这次获得的礼品券：<br>编号：<em class="js-code">abc123334</em></p>
+    </section>
+
+</div>
+<div id="error">
+    <section class="win">
+        <h1>出错啦！</h1>
+        <p class="js-error-msg-cnt">页面请求出错</p>
+        <a class="btn blue" href="javascript:history.go(-1);">返回</a>
+    </section>
+</div>

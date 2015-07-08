@@ -1,0 +1,4 @@
+.left{float:left; width: 10rem;}
+.main{ margin-left: 11rem; text-align: center;}
+.main img{ width: 100%;}
+.main .desc{ display: inline-block; clear: both; height: 2rem; line-height: 1rem; overflow: hidden;}
