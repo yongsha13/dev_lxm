@@ -7,7 +7,6 @@
     <title>玫瑰时光</title>
     <link rel="stylesheet" href="./css/reset.css"/>
     <link rel="stylesheet" href="./css/common.css"/>
-    <script src="js/wx-config.js"></script>
 </head>
 <body>
 <div id="mn"></div>
@@ -20,10 +19,17 @@
 <script src="js/data.js"></script>
 <script src="js/config.js"></script>
 <script src="js/common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
     var params = {
-
+        wxArgs:{
+            appId:'',//公众号ID
+            timestamp:'',//签名时间戳
+            nonceStr:'',//签名随机串
+            signature:''//签名
+        }
     }
 </script>
+<script src="js/wx-config.js"></script>
 </body>
 </html>
