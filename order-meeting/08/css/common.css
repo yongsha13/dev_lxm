@@ -1,0 +1,62 @@
+html,body{ height: 100%; font-size: 16px; padding: 0; margin: 0;}
+a:visited,a:hover,a:link{ text-decoration: none;}
+/*body{ font-size: 12px;}*/
+#mn{height:100%; min-width: 240px; min-height: 30rem; background-color: #fff; background-image: url(../images/bg.jpg); background-size: 100%; background-repeat: no-repeat;}
+img{ width: 100%;}
+a.back{ position: absolute; top: .5rem; left: .5rem; display: block; width: 1.6rem; height: 1.6rem;  line-height:1.4rem; border-radius: .8rem; background: #231815; color: #fff;}
+.start section{ width: 16rem; margin: 0 auto; padding-top: 6rem;}
+.start section ul{ padding-top: 2rem;}
+.start section ul li{ line-height: 2.4rem; margin:.2rem 0; border: 1px solid #231815;}
+.start section ul li a{ display: block; text-align: center;}
+
+.show section{ padding-top: 6rem;}
+.show ul { width: 20rem; margin: 0 auto;}
+.show ul li{float:left; width: 9rem; margin: .3rem; text-align: center; border: .15rem dashed #231815; border-radius: 1rem;}
+.show ul li span{ line-height: 2rem;}
+
+.sign section {text-align: center; padding-top: 5rem; width: 20rem; margin: 0 auto;}
+.sign section img{ width: 70%;}
+.sign section h2{ line-height: 3rem; text-align: center; font-weight: 500; font-size: 1.2rem;}
+.sign section .item{ line-height: 2.4rem; margin: .2rem 0; padding-left: 1rem; background: #f5f5f5; text-align: left;}
+.sign section .item.w{ background: none;}
+.sign section .item img{ width: 1.6rem; height: 1.6rem; vertical-align: middle;}
+.sign section .item label{ display: inline-block; width: 3rem; text-align: center;}
+.sign section .item input{ display: inline-block; width: 13rem; border: none; background: none;}
+.sign section .item.error{ color: #f00;}
+.sign section .item .box{ display: inline-block; width: 13rem; height: 6rem; vertical-align: top;}
+.sign section .item .box span{ display: inline-block; width: 3rem; line-height: 2rem; background: #f5f5f5; text-align: center;}
+.sign section .item .box span.cur{ width: 2.8rem; line-height: 1.8rem; border: .1rem solid #231815;}
+.sign section a.btn{ display: block; background: #000; color: #fff; text-align: center; line-height: 2.4rem;}
+.sign section a.btn img{ width: 1.8rem; height: 1.8rem; vertical-align: middle; }
+.sign.success section img{ width: 30%;}
+.sign.success section img.icon{ width: 14%;}
+.sign.success section p{ line-height: 3rem; color: #231815;}
+.top-list section{ padding-top: 5rem;}
+.top-list section h2{ text-align: center; font-weight: 500; font-size: 1.2rem; line-height: 3rem;}
+
+.top-list ul li{ padding: .5rem; line-height: 1.4rem; background: #f5f5f5;}
+.top-list ul li:nth-child(2n){background: #fff;}
+.top-list ul li img{ width: 1.4rem; height: 1.4rem; vertical-align: middle;}
+.top-list ul li span{ float: right;}
+
+@media screen and (max-width: 280px) {html,body{ font-size: 12px;}}
+@media screen and (min-width: 280px) and (max-width: 300px) {html,body{ font-size: 13px;}}
+@media screen and (min-width: 300px) and (max-width: 320px) {html,body{ font-size: 14px;}#detail .cnt{top: 24.4rem;}}
+@media screen and (min-width: 320px) and (max-width: 340px) {html,body{ font-size: 15px;}}
+@media screen and (min-width: 340px) and (max-width: 360px) {html,body{ font-size: 16px;}}
+@media screen and (min-width: 360px) and (max-width: 370px) {html,body{ font-size: 17px;}#detail .cnt{top: 24rem;}}
+@media screen and (min-width: 370px) and (max-width: 380px) {html,body{ font-size: 17px;}#detail .cnt{top: 25rem;}}
+@media screen and (min-width: 380px) and (max-width: 400px) {html,body{ font-size: 18px;}#detail .cnt{top: 24.5rem;}}
+@media screen and (min-width: 400px) and (max-width: 420px) {html,body{ font-size: 19px;}#detail .cnt{top: 24.15rem;}}
+@media screen and (min-width: 420px) and (max-width: 440px) {html,body{ font-size: 20px;}}
+@media screen and (min-width: 440px) and (max-width: 460px) {html,body{ font-size: 21px;}}
+@media screen and (min-width: 460px) and (max-width: 480px) {html,body{ font-size: 22px;}}
+@media screen and (min-width: 480px) and (max-width: 500px) {html,body{ font-size: 23px;}}
+@media screen and (min-width: 500px) and (max-width: 520px) {html,body{ font-size: 24px;}}
+@media screen and (min-width: 520px) and (max-width: 540px) {html,body{ font-size: 25px;}}
+@media screen and (min-width: 540px) and (max-width: 560px) {html,body{ font-size: 26px;}}
+@media screen and (min-width: 560px) and (max-width: 580px) {html,body{ font-size: 27px;}}
+@media screen and (min-width: 580px) and (max-width: 600px) {html,body{ font-size: 28px;}#detail .cnt{top: 24.5rem;}}
+@media screen and (min-width: 1024px) and (max-width: 1280px) {html,body{ font-size: 48px;}#detail .cnt{top: 24rem;}}
+@media screen and (min-width: 1280px) and (max-width: 1440px) {html,body{ font-size: 64px;}}
+

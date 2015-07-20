@@ -29,27 +29,77 @@ var tplData = {
     game:{
         title:'翻牌有奖',
         baseUrl:baseUrl,
+        prizeNum:0,
+        prizeTimes:2,
+        prizeRemoteNum:1,
+        turnImages:[],
         list:[
             {
-                url:'',
+                url:'javascript:;',
                 src:'images/poke-bg.png'
             },{
-                url:'',
+                url:'javascript:;',
                 src:'images/poke-bg.png'
             },{
-                url:'',
+                url:'javascript:;',
                 src:'images/poke-bg.png'
             },{
-                url:'',
+                url:'javascript:;',
                 src:'images/poke-bg.png'
             },{
-                url:'',
+                url:'javascript:;',
                 src:'images/poke-bg.png'
             },{
-                url:'',
+                url:'javascript:;',
                 src:'images/poke-bg.png'
             }
         ]
+    },
+    gamePrize:{
+        prizes:[
+            {
+                title:'无中奖',
+                baseUrl:baseUrl,
+                times:2,
+                list:[
+                    {
+                        url:'javascript:;',
+                        src:'images/spoil-s-1.jpg',
+                        name:'幻彩水晶发梳<br>100名'
+                    },{
+                        url:'javascript:;',
+                        src:'images/spoil-s-2.jpg',
+                        name:'美白旅行套<br>1000名'
+                    },{
+                        url:'javascript:;',
+                        src:'images/spoil-s-3.jpg',
+                        name:'定制收纳包<br>10000名'
+                    }
+                ]
+            },{
+                title:'一等奖',
+                baseUrl:baseUrl,
+                prizeName:'花千朵发饰',
+                src:'images/spoil-1.jpg'
+            },{
+                title:'二等奖',
+                baseUrl:baseUrl,
+                prizeName:'凝脂莹透美白旅行套',
+                src:'images/spoil-2.jpg'
+            },{
+                title:'三等奖',
+                baseUrl:baseUrl,
+                prizeName:'流行美定制收纳包',
+                src:'images/spoil-3.jpg'
+            }
+        ]
+
+    },
+    gameAddress:{
+        title:'填写地址'
+    },
+    gameAddressSuccess:{
+        title:'提交成功'
     },
     rule:{
         title:'活动规则',
@@ -63,6 +113,11 @@ var tplData = {
             {area:'华南',fst:40,sec:60,thd:100},
             {area:'华南',fst:40,sec:60,thd:100}
         ]
+    },
+    menu:{
+        baseUrl:baseUrl,
+        ticketNum:1,
+        chanceNum:0
     },
     prodCate:{
         title:'产品分类',
@@ -114,6 +169,27 @@ var tplData = {
             }
         ]
     },
+    topList:{
+        title:'排行榜',
+        baseUrl:baseUrl,
+        list:[
+            {
+                url:'#',
+                src:'images/photo-1.jpg',
+                bigSrc:'images/photo-1.jpg',
+                openId:'abc123',
+                praise:100,
+                sort:56
+            },{
+                url:'#',
+                src:'images/photo-1.jpg',
+                bigSrc:'images/photo-1.jpg',
+                openId:'abc123',
+                praise:100,
+                sort:56
+            }
+        ]
+    },
     homepage:{
         title:'个人主页'
     },
@@ -139,5 +215,23 @@ var tplData = {
                 name:'买满2199元，即可获赠价值598元流行美饰品百宝箱'
             }
         ]
+    },
+    show:{
+        baseUrl:baseUrl,
+        list:[
+            {
+                src:'images/show-pai.jpg',
+                url:'#',
+                name:'拍照上传'
+            },{
+                src:'images/show-add.jpg',
+                url:'#',
+                name:'本地上传'
+            }
+        ]
+    },
+    preview:{
+        title:'上传照片',
+        baseUrl:baseUrl
     }
 }
