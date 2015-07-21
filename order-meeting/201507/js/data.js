@@ -39,7 +39,9 @@ var tplData = {
         ]
     },
     sign:{
-        baseUrl:baseUrl
+        baseUrl:baseUrl,
+        areaId:0,
+        areaName:''
     },
     signSuccess:{
         baseUrl:baseUrl,
@@ -80,6 +82,10 @@ var tplData = {
     homepage:{
         baseUrl:baseUrl,
         src:'images/photo-1.jpg',
-        name:'丛'
+        vote:200,
+        name:'丛军华-华中'
+    },
+    voteError:{
+        baseUrl:baseUrl
     }
 }

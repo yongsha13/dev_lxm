@@ -112,12 +112,25 @@ var TPL = {
                 <ul>{{include tmpl="liTopList"/}}</ul>\
             </section>\
         </div>',
-    homePage:
+    homepage:
         '<div class="homepage">\
             <a href="javascript:;" class="back">《</a>\
             <img src="{{:baseUrl}}{{:src}}" alt=""/>\
-            <span class="vote"><img src="{{:baseUrl}}images/icon-vote.png" alt=""/>{{:vote}}</span>\
-            <span class="name"><img src="{{:baseUrl}}images/icon-ava.png" alt=""/>{{:name}}</span>\
+            <span class="vote"><img src="{{:baseUrl}}images/icon-vote.png" alt=""/> {{:vote}}</span>\
+            <span class="name"><img src="{{:baseUrl}}images/icon-ava.png" alt=""/> {{:name}}</span>\
+            <a href="javascript:;" class="btn red">投票</a>\
+        </div>',
+    voteError:
+        '<div class="sign success">\
+        <section>\
+                <img src="{{:baseUrl}}images/vote-error.png" alt=""/>\
+                <h2>优胜团队正在评选中，<br>请耐心等候！</h2>\
+                <br><br><br><br><br><br><br>\
+                <a href="#">\
+                <img src="{{:backUrl}}images/back-bak.png" alt="" class="icon"/>\
+                <p>返回</p>\
+                </a>\
+            </section>\
         </div>'
 };
 $.templates(TPL);

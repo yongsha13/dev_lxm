@@ -3,5 +3,5 @@
  */
 var cfg = params.wxArgs;
 cfg['debug'] = false;
-cfg['jsApiList'] = [];
+cfg['jsApiList'] = ['chooseImage','previewImage','uploadImage'];
 wx.config(cfg);

@@ -4,6 +4,8 @@ a:visited,a:hover,a:link{ text-decoration: none;}
 #mn{height:100%; min-width: 240px; min-height: 30rem; background-color: #fff; background-image: url(../images/bg.jpg); background-size: 100%; background-repeat: no-repeat;}
 img{ width: 100%;}
 a.back{ position: absolute; top: .5rem; left: .5rem; display: block; width: 1.6rem; height: 1.6rem;  line-height:1.4rem; border-radius: .8rem; background: #231815; color: #fff;}
+a.btn{display: block; margin: 0 .5rem; line-height: 2.4rem; text-align: center; color: #fff;}
+a.btn.red{ background: #d2112e;}
 .start section{ width: 16rem; margin: 0 auto; padding-top: 6rem;}
 .start section ul{ padding-top: 2rem;}
 .start section ul li{ line-height: 2.4rem; margin:.2rem 0; border: 1px solid #231815;}
@@ -31,6 +33,7 @@ a.back{ position: absolute; top: .5rem; left: .5rem; display: block; width: 1.6r
 .sign.success section img{ width: 30%;}
 .sign.success section img.icon{ width: 14%;}
 .sign.success section p{ line-height: 3rem; color: #231815;}
+.sign.success a{ display: block;}
 .top-list section{ padding-top: 5rem;}
 .top-list section h2{ text-align: center; font-weight: 500; font-size: 1.2rem; line-height: 3rem;}
 
@@ -38,6 +41,9 @@ a.back{ position: absolute; top: .5rem; left: .5rem; display: block; width: 1.6r
 .top-list ul li:nth-child(2n){background: #fff;}
 .top-list ul li img{ width: 1.4rem; height: 1.4rem; vertical-align: middle;}
 .top-list ul li span{ float: right;}
+.homepage span{ display: block; line-height: 2rem; margin: 0 .5rem;}
+.homepage span.vote{ color: #d2112e;}
+.homepage span img { width: 1.4rem; height: 1.4rem; margin-bottom:.2rem;  vertical-align: middle;}
 
 @media screen and (max-width: 280px) {html,body{ font-size: 12px;}}
 @media screen and (min-width: 280px) and (max-width: 300px) {html,body{ font-size: 13px;}}

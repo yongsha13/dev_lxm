@@ -25,6 +25,12 @@
         },
         '/top-list':function(){
             render('topList');
+        },
+        '/homepage/:id':function(id){
+            render('homepage');
+        },
+        '/error':function(){
+            render('voteError');
         }
     }
 };
