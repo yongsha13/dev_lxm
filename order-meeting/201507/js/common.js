@@ -4,7 +4,7 @@
 
 
 ;$(function(){
-    params['openId'] = 14;
+    localStorage.setItem('openId',31);
     window.router = Router(routes).configure({ recurse: 'forward' });
     router.init();
     if(!localStorage.getItem('openId')) location.hash = '/index/sign';
@@ -38,13 +38,41 @@
                 }
             });
         })
+        .on('click','.show.list img',function(){
+            var index = $(this).closest('li').index();
+            tplData.showDetail = tplData.showList.list[index];
+            location.hash='#/index/show-detail'
+        })
+        .on('click','.show.detail .btn',function(){
+            $.ajax({
+                url:'/orderMeeting2/OiOMForVote/addVote.do',
+                type:'POST',
+                dataType:'JSON',
+                data:{activityStepId:8,toUserId:tplData.showDetail.activityUserId,activityUserId:localStorage.getItem('openId')},
+                success:function(req){
+                    if(req['errorCode']==0){
+                        tplData.showList.list[index].counter++;
+                        tplData.showDetail.counter++;
+                    }
+
+                }
+            });
+        })
         .on('click','.sign .box span',function(){
             tplData.sign.areaId = $(this).index()+1;
             tplData.sign.areaName = $(this).html();
             $(this).addClass('cur').siblings().removeClass('cur');
         })
         .on('click','.shake .btn',function(){
-            ajax('');
+            ajax('raceStepInfo.do',{stepId:6},function(req){
+                if(req['data']['stepStatus']==0){
+                    alert('活动还未开始')
+                }else if(req['data']['stepStatus']==1){
+                    location.hash = '#/index/shake-game';
+                }else{
+                    alert('活动已经结束');
+                }
+            });
         })
         .on('click','.sign .btn',function(){
             var data = {
@@ -164,7 +192,7 @@ function doResult() {
     //alert("摇动了");
     if(w<18)w += 1;
     else{
-        ajax('raceResult.do',{stepId:6,activityUserId:localStorage.getItem('openId'),percent:100},function(){
+        ajax('race.do',{stepId:6,activityUserId:localStorage.getItem('openId'),percent:100},function(){
             location.hash='#/index/shake-success'
         });
     }

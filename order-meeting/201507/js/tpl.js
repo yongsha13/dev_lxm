@@ -14,7 +14,7 @@ var TPL = {
     liTop:
         '<li data-id="{{:activityUserId}}">\
             <img src="{{:#parent.parent.data.baseUrl}}/images/icon-ava.png" alt=""/>\
-            {{if userName}}{{:userName}}-{{:areaName}}{{else}}{{:areaName}}{{/if}}\
+            {{if userName}}{{if otherName}}{{:otherName}}{{else}}{{:userName}}{{/if}}-{{:areaName}}{{else}}{{:areaName}}{{/if}}\
             {{if canVote=="1"&&#parent.parent.data.hasVoteNum>0}}\
             <span class="js-vote">\
                 投票\
@@ -45,6 +45,7 @@ var TPL = {
             <ul>\
                 {{for list tmpl="liImg"/}}\
             </ul>\
+            <a href="#" class="btn red">投票</a>\
             </section>\
         </div>',
     preview:
@@ -58,6 +59,33 @@ var TPL = {
             <section>\
                 <img src="{{:baseUrl}}images/success.png" alt=""/>\
                 <p>您的图片已经上传成功，<br>可以参与我们的抽奖活动！</p>\
+            </section>\
+        </div>',
+    showList:
+        '<div class="show list">\
+            <section>\
+            <h2>抢钻戒排行榜</h2>\
+            <ul>\
+            {{for list tmpl="showListLi"/}}\
+            </ul>\
+            </section>\
+        </div>',
+    showListLi:
+        '<li data-id="{{:activityUserId}}">\
+            <a href="javascript:;"><img src="{{:photoUrl}}" alt=""/></a>\
+        <div class="info">\
+        <span class="vote"><img src="{{:baseUrl}}images/icon-vote.png" alt=""/>{{:counter}}</span>\
+        <span class="name">{{:userName}}-{{:areaName}}</span>\
+        </div>\
+        </li>',
+    showDetail:
+        '<div class="show detail">\
+            <section>\
+                <a href="javascript:;" class="back">《</a>\
+                <img src="{{:photoUrl}}" alt=""/>\
+                <span class="vote"><img src="{{:baseUrl}}images/icon-vote.png" />{{:counter}}</span>\
+                <span class="name">{{:userName}}-{{:areaName}}</span>\
+                <a href="javascript:;" class="btn red">投票</a>\
             </section>\
         </div>',
     sign:
@@ -79,9 +107,9 @@ var TPL = {
                 <img src="{{:baseUrl}}images/icon-pos.png" alt=""/>\
                 <label>区域</label>\
                 <div class="box">\
-                    <span>华东</span>\
+                    <span class="cur">华东</span>\
                     <span>华中</span>\
-                    <span class="cur">华南</span>\
+                    <span>华南</span>\
                     <span>华北</span>\
                     <span>西北</span>\
                     <span>西南</span>\
@@ -97,7 +125,7 @@ var TPL = {
             <section>\
                 <img src="{{:baseUrl}}images/success.png" alt=""/>\
                 <h2>尊敬的加盟商，您已经签到成功。</h2>\
-                {{if num}}房间号：{{:num}}{{/if}}\
+                {{if num}}房间号：{{:num}}{{else}}请联系工作人员{{/if}}\
                 <img src="{{:baseUrl}}images/back-ava.png" alt="" class="icon"/>\
                 <p>{{:name}}</p>\
                 <img src="{{:backUrl}}images/back-tel.png" alt="" class="icon"/>\
@@ -152,7 +180,7 @@ var TPL = {
             <section>\
                 <h2><em>摇一摇</em></h2>\
                 <p>用力摇一摇，赢取机会上台参与互动游戏！<br>开始时间请关注大屏幕！</p>\
-                <a href="#/index/shake-game" class="btn red">开始游戏</a>\
+                <a href="javascript:;" class="btn red">开始游戏</a>\
                 <h2><em>游戏规则</em></h2>\
                 <p>游戏时间：<br>2015年7月28日晚上</p>\
                 <p>参与方式：<br>主持人宣布游戏开始后，按下“开始游戏”按键，用力摇晃您的手机，系统将自动抽取幸运观众上台互动！</p>\

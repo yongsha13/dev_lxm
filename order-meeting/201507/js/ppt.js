@@ -5,7 +5,7 @@ $(function(){
     $(window).resize(function(){
         var marginTop = ($('.ppt').height()-$('.ppt>div').height())/2+'px';
         console.log(marginTop);
-        $('.game,.diamond').css('margin-top',marginTop);
+        $('.game,.diamond,.ppt>.result').css('margin-top',marginTop);
     });
     $(window).resize();
     $('.ppt .game').on('click','.btn',function(){
@@ -102,10 +102,11 @@ var game = {
             $('.ppt .game .result').slideDown();
         });
         ajax('raceResult.do',{stepId:6},function(req){
-            var html = '';
+            var html = '<ul>';
             for(var i=0;i<req['data'].length;i++){
                 html+= '<li>'+req['data'][i].userName+'</li>';
             };
+            html += '</ul>';
             $('.ppt .game .result').html(html);
         });
         /*this.playTxt(5,4,function(){

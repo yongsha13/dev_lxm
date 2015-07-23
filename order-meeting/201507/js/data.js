@@ -18,7 +18,7 @@ var tplData = {
                 link:'#/index/top-list/4'
             },{
                 name:'蒙眼化妆比赛',
-                link:'#'
+                link:'#/index/top-list/5'
             },{
                 name:'团队得分',
                 link:'#/index/top-list/15'
@@ -44,6 +44,14 @@ var tplData = {
     },
     showSuccess:{
         baseUrl:baseUrl
+    },
+    showList:{
+        baseUrl:baseUrl,
+        areas:['','华东','华中','华南','华北','西北','西南','川渝'],
+        list:[]
+    },
+    showDetail:{
+
     },
     sign:{
         baseUrl:baseUrl,

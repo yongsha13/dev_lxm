@@ -10,24 +10,25 @@
 </head>
 <body>
 <div class="ppt">
-    <div class="game">
-        <div class="head">请<em>拿稳</em>手机，准备开始...</div>
-        <div class="num" style="display: none;"></div>
-        <div class="runs">
-            <a href="javascript:;" class="btn">开始</a>
-        </div>
-        <div class="result" style="display: none;">
-            <p>正在统计获奖名单，请稍候...</p>
-            <ul style="display: none;">
+    <div class="result">
+        <section>
+            <h1>甜蜜的风信年华</h1>
+            <ul>
+
             </ul>
-        </div>
+            <div class="tag"><img src="images/ppt/tag02.png" /></div>
+        </section>
+
     </div>
 </div>
+
 <script src="./js/jquery-1.7.2.js"></script>
-<script src="./js/ppt.js"></script>
+<script src="./js/result.js"></script>
 <script>
+
     var params = {
-        ajaxBaseUrl:'/order201507/orderMeeting'
+        stepId:3,
+        ajaxBaseUrl:'http://www.wxbinf.com/order201507/orderMeeting'
     }
 </script>
 </body>

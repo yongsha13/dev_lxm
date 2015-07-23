@@ -17,7 +17,17 @@ a.btn.red{ background: #d2112e;}
 .show ul li span{ line-height: 2rem;}
 .show.success{ text-align: center; line-height: 3rem;}
 .show.success img{ width: 30%;}
-.preview a.btn{ position: fixed; bottom: .5rem; left: 0; width: 100%;}
+.show a.btn,.preview a.btn{ position: fixed; bottom: .5rem; left: 0; width: 100%;}
+.show.list h2{ text-align: center; font-weight: 500; font-size: 1.2rem;}
+.show.list ul li{ border-radius: 0; border: none;}
+.show.list ul li .info img{ width: 1.2rem; padding: 0 .2rem;}
+.show.list ul li .info { text-align: left;}
+.show.list ul li .info .vote{ color: #d2112e;}
+.show.list ul li .info .name{float:right;}
+.show.detail section{ padding: 0 0 4rem;}
+.show.detail section span{ display: block; padding: 0 .5rem; line-height: 2rem;}
+.show.detail section span img{ width: 1.2rem; padding: 0 .2rem;}
+.show.detail section span.vote{ color: #d2112e;}
 
 .sign section {text-align: center; padding-top: 5rem; width: 20rem; margin: 0 auto;}
 .sign section img{ width: 70%;}
@@ -64,13 +74,20 @@ a.btn.red{ background: #d2112e;}
 .ppt .game .result{display: block; position: absolute; left: 50px; top: 20px; width: 700px; height: 480px; background-image: url(../images/ppt/frame.png); background-repeat:no-repeat; background-size: 100%}
 .ppt .game .result p{ padding: 110px; text-align: center; color: #fff;}
 .ppt .game .result ul{padding: 146px 110px; text-align: center; color: #fff;}
-.ppt .game .result ul li{float:left; text-align: left; width: 200px; height: 36px; line-height: 24px; padding-left: 30px; background-image: url(../images/ppt/dot.png); background-repeat: no-repeat; background-size: 20px;}
+.ppt .game .result ul li{ border:none;float:left; text-align: left; width: 100px; height: 36px; line-height: 24px; padding-left: 30px; background-image: url(../images/ppt/dot.png); background-repeat: no-repeat; background-size: 20px;}
 .ppt .game .btn{ margin: 100px auto 0; width: 100px; background: #1aa000; height: 50px; line-height: 50px; font-size: 25px; border: 2px solid #fff; border-radius: 30px; box-shadow: 5px 5px 10px #000;}
 .ppt .diamond{position: relative; margin: 0 auto; width: 840px; height: 520px; background-image: url(../images/ppt/bg-diamanod01.jpg); background-size: 100%;}
 .ppt .diamond section{ padding: 100px 0 0;}
 .ppt .diamond .avatar{ margin: 0 auto; width: 200px; height:270px;border: 2px solid #e5c7bd; overflow: hidden; word-break: keep-all; white-space: nowrap;}
 .ppt .diamond .ctrl { text-align: center; padding: 30px;}
 .ppt .diamond .ctrl a{ display: inline-block; width: 100px;}
+.ppt .result{position: relative; margin: 0 auto; width: 840px; height: 520px; background-image: url(../images/ppt/bg-list.jpg); background-size: 100%;}
+.ppt .result section{ padding: 60px;}
+.ppt .result h1{ font-size: 48px; text-align: center;}
+.ppt .result ul{ padding: 40px 60px; font-size: 16px;}
+.ppt .result ul li{float:left; margin: 10px 40px; border-left: 10px solid #d2112e; padding: 0 5px; width: 180px;}
+.ppt .result ul li span{ float: right;}
+.ppt .result .tag{ position: absolute; width: 100px; top: 40px; left: 100px;}
 
 @media screen and (max-width: 280px) {html,body{ font-size: 12px;}}
 @media screen and (min-width: 280px) and (max-width: 300px) {html,body{ font-size: 13px;}}

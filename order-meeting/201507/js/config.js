@@ -20,6 +20,21 @@
         '/show-success':function(){
             render('showSuccess');
         },
+        '/show-list':function(){
+            $.ajax({
+                url:'/orderMeeting2/OiOMForVote/queryVoteResult.do',
+                type:'POST',
+                dataType:'JSON',
+                data:{stepId:8},
+                success:function(req){
+                    tplData.showList.list = req['userDatas']
+                    render('showList');
+                }
+            })
+        },
+        '/show-detail':function(){
+            render('showDetail');
+        },
         '/sign':function(){
             var obj = {
                 baseUrl:baseUrl,
@@ -44,6 +59,8 @@
         },
         '/top-list/:id':function(id){
             if(id>10) tplData.topList.title = '优胜团队';
+            else if(id==5) tplData.topList.title = '蒙眼化妆';
+            else tplData.topList.title = '最具人气模特奖';
             /*switch (parseInt(id)){
                 case 2: chooseTitle(0);break;
                 case 3: chooseTitle(1);break;
