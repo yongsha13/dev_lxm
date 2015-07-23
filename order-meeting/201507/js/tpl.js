@@ -14,7 +14,7 @@ var TPL = {
     liTop:
         '<li>\
             <img src="{{:#parent.parent.data.baseUrl}}/images/icon-ava.png" alt=""/>\
-            {{:name}}-{{:area}}\
+            {{if userName}}{{:userName}}-{{:areaName}}{{else}}{{:areaName}}{{/if}}\
             {{if #parent.parent.data.hasVoteNum>0}}\
             <span>\
                 投票\
@@ -22,7 +22,7 @@ var TPL = {
             </span>\
             {{else}}\
             <span>\
-                {{:vote}}票\
+                {{:counter}}票\
                 <img src="{{:#parent.parent.data.baseUrl}}images/icon-vote.png" alt=""/>\
             </span>\
             {{/if}}\
@@ -130,6 +130,34 @@ var TPL = {
                 <img src="{{:backUrl}}images/back-bak.png" alt="" class="icon"/>\
                 <p>返回</p>\
                 </a>\
+            </section>\
+        </div>',
+    shake:
+        '<div class="shake">\
+            <section>\
+                <h2><em>摇一摇</em></h2>\
+                <p>用力摇一摇，赢取机会上台参与互动游戏！<br>开始时间请关注大屏幕！</p>\
+                <a href="#/index/shake-game" class="btn red">开始游戏</a>\
+                <h2><em>游戏规则</em></h2>\
+                <p>游戏时间：<br>2015年7月28日晚上</p>\
+                <p>参与方式：<br>主持人宣布游戏开始后，按下“开始游戏”按键，用力摇晃您的手机，系统将自动抽取幸运观众上台互动！</p>\
+            </section>\
+        </div>',
+    shakeGame:
+        '<div class="shake">\
+            <section>\
+                <audio id="audioShake"><source src="{{:baseUrl}}images/551.mp3" type="audio/mp3"/></audio>\
+                <img src="{{:baseUrl}}images/shake.jpg" alt=""/>\
+                <div class="banner">\
+                    <div class="em"></div>\
+                </div>\
+            </section>\
+        </div>',
+    shakeSuccess:
+        '<div class="shake">\
+            <section>\
+                \
+                <p><img style="width: 6rem;" src="{{:baseUrl}}images/vote-error.png" alt=""/><br>游戏已经结束，<br>游戏结果将在大屏显示。</p>\
             </section>\
         </div>'
 };

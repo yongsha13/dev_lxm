@@ -45,6 +45,24 @@ a.btn.red{ background: #d2112e;}
 .homepage span.vote{ color: #d2112e;}
 .homepage span img { width: 1.4rem; height: 1.4rem; margin-bottom:.2rem;  vertical-align: middle;}
 
+.shake section { padding: 4rem 0 0;}
+.shake section h2{ border-bottom: 1px solid #231815; height: 2rem; overflow: visible; margin:0 1rem 2rem;}
+.shake section h2 em{ display: block; width: 6rem; margin: 0 auto; line-height: 4rem; text-align: center; background: #fff; height: 4rem;font-weight: 500; font-size: 1.2rem;}
+.shake section p{ line-height: 1.5rem; text-align: center; padding: 1rem .5rem;}
+.shake section .banner{ margin: 2rem auto 0; width: 18rem; height: .5rem; background: #231815; border-radius: .4rem; overflow: hidden;}
+.shake section .banner .em{ display: block; width: 0rem; height: .5rem; background: #3399FF; border-radius: .3rem;}
+
+.ppt{ height: 100%; background: #000;}
+.ppt .game{ position: relative; margin: 0 auto; width: 840px; height: 520px; background-image: url(../images/ppt/bg.jpg); background-size: 100%;}
+.ppt .game .head{ line-height: 48px; padding: 30px 30px 0 0; color: #fff; font-size: 24px; text-align: center;}
+.ppt .game .head em{ font-size: 48px; padding: 0 10px; }
+.ppt .game .num{ position: absolute; top: 180px; width: 100%; height: 160px; line-height: 160px; text-align: center; color: #fff; font-size: 100px; font-weight: 700;}
+.ppt .game .runs img{ position: absolute; width: 50px;}
+.ppt .game .result{display: block; position: absolute; left: 50px; top: 20px; width: 700px; height: 480px; background-image: url(../images/ppt/frame.png); background-repeat:no-repeat; background-size: 100%}
+.ppt .game .result p{ padding: 110px; text-align: center; color: #fff;}
+.ppt .game .result ul{padding: 146px 110px; text-align: center; color: #fff;}
+.ppt .game .result ul li{float:left; text-align: left; width: 200px; height: 36px; line-height: 24px; padding-left: 30px; background-image: url(../images/ppt/dot.png); background-repeat: no-repeat; background-size: 20px;}
+.ppt .game .btn{ margin: 100px auto 0; width: 100px; background: #1aa000; height: 50px; line-height: 50px; font-size: 25px; border: 2px solid #fff; border-radius: 30px; box-shadow: 5px 5px 10px #000;}
 @media screen and (max-width: 280px) {html,body{ font-size: 12px;}}
 @media screen and (min-width: 280px) and (max-width: 300px) {html,body{ font-size: 13px;}}
 @media screen and (min-width: 300px) and (max-width: 320px) {html,body{ font-size: 14px;}#detail .cnt{top: 24.4rem;}}

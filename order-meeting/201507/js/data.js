@@ -5,22 +5,23 @@ var baseUrl='./';
 var tplData = {
     start:{
         baseUrl:baseUrl,
+        id:0,
         list:[
             {
                 name:'1&middot;吸引人的豆蔻岁月',
-                link:'#'
+                link:'#/index/top-list/2'
             },{
                 name:'2&middot;甜蜜的风信年华',
-                link:'#'
+                link:'#/index/top-list/3'
             },{
-                name:'1&middot;玫瑰成就永恒',
-                link:'#'
+                name:'3&middot;玫瑰成就永恒',
+                link:'#/index/top-list/4'
             },{
                 name:'蒙眼化妆比赛',
                 link:'#'
             },{
                 name:'团队得分',
-                link:'#'
+                link:'#/index/top-list/15'
             }
         ]
     },
@@ -58,25 +59,8 @@ var tplData = {
     topList: {
         baseUrl: baseUrl,
         title:'最具人气模特奖',
-        hasVoteNum:1,
+        hasVoteNum:0,
         list: [
-            {
-                name: '丛军华',
-                area: '华东',
-                vote: '1500'
-            },{
-                name: '丛军华',
-                area: '华东',
-                vote: '15'
-            },{
-                name: '丛军华',
-                area: '华东',
-                vote: '1500'
-            },{
-                name: '丛军华',
-                area: '华东',
-                vote: '1500'
-            }
         ]
     },
     homepage:{
@@ -86,6 +70,13 @@ var tplData = {
         name:'丛军华-华中'
     },
     voteError:{
+        baseUrl:baseUrl
+    },
+    shake:{},
+    shakeGame:{
+        baseUrl:baseUrl
+    },
+    shakeSuccess:{
         baseUrl:baseUrl
     }
 }
