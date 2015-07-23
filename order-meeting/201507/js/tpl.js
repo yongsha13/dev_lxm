@@ -42,10 +42,10 @@ var TPL = {
         '<div class="show">\
             <a href="javascript:;" class="back">《</a>\
             <section>\
-            <ul>\
+            <ul class="upload">\
                 {{for list tmpl="liImg"/}}\
             </ul>\
-            <a href="#" class="btn red">投票</a>\
+            {{if showBtn}}<a href="#/index/show-list" class="btn red">投票</a>{{/if}}\
             </section>\
         </div>',
     preview:
@@ -125,7 +125,7 @@ var TPL = {
             <section>\
                 <img src="{{:baseUrl}}images/success.png" alt=""/>\
                 <h2>尊敬的加盟商，您已经签到成功。</h2>\
-                {{if num}}房间号：{{:num}}{{else}}请联系工作人员{{/if}}\
+                <p>{{if num&&num!="null"}}房间号：{{:num}}{{else}}请联系工作人员{{/if}}</p>\
                 <img src="{{:baseUrl}}images/back-ava.png" alt="" class="icon"/>\
                 <p>{{:name}}</p>\
                 <img src="{{:backUrl}}images/back-tel.png" alt="" class="icon"/>\
@@ -139,7 +139,6 @@ var TPL = {
             <section>\
                 <img src="{{:baseUrl}}images/sign-error.png" alt=""/>\
                 <h2>尊敬的加盟商，您已签到成功，请找工作人员为您办理相关手续。</h2>\
-                {{if num}}房间号：{{:num}}{{/if}}\
                 <img src="{{:baseUrl}}images/back-ava.png" alt="" class="icon"/>\
                 <p>{{:name}}</p>\
                 <img src="{{:backUrl}}images/back-tel.png" alt="" class="icon"/>\

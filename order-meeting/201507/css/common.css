@@ -74,7 +74,7 @@ a.btn.red{ background: #d2112e;}
 .ppt .game .result{display: block; position: absolute; left: 50px; top: 20px; width: 700px; height: 480px; background-image: url(../images/ppt/frame.png); background-repeat:no-repeat; background-size: 100%}
 .ppt .game .result p{ padding: 110px; text-align: center; color: #fff;}
 .ppt .game .result ul{padding: 146px 110px; text-align: center; color: #fff;}
-.ppt .game .result ul li{ border:none;float:left; text-align: left; width: 100px; height: 36px; line-height: 24px; padding-left: 30px; background-image: url(../images/ppt/dot.png); background-repeat: no-repeat; background-size: 20px;}
+.ppt .game .result ul li{ border:none; margin:0;float:left; text-align: left; width: 200px; height: 35px; line-height: 24px; padding-left: 30px; background-image: url(../images/ppt/dot.png); background-repeat: no-repeat; background-size: 20px;}
 .ppt .game .btn{ margin: 100px auto 0; width: 100px; background: #1aa000; height: 50px; line-height: 50px; font-size: 25px; border: 2px solid #fff; border-radius: 30px; box-shadow: 5px 5px 10px #000;}
 .ppt .diamond{position: relative; margin: 0 auto; width: 840px; height: 520px; background-image: url(../images/ppt/bg-diamanod01.jpg); background-size: 100%;}
 .ppt .diamond section{ padding: 100px 0 0;}

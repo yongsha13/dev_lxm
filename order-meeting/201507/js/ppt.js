@@ -14,7 +14,9 @@ $(function(){
         console.log('start');
 
         ajax('raceControl.do',{stepId:6,stepStatus:1},function(req){
-            game.start();
+            if(req['errorMsg']!=2)game.start();
+            else{ alert('活动已经结束，请后台重新启动！')}
+
         });
     });
     $('.ppt .diamond').on('click','.ctrl a',function(){
@@ -104,7 +106,7 @@ var game = {
         ajax('raceResult.do',{stepId:6},function(req){
             var html = '<ul>';
             for(var i=0;i<req['data'].length;i++){
-                html+= '<li>'+req['data'][i].userName+'</li>';
+                html+= '<li>'+(i+1)+' '+req['data'][i].areaName+'-'+req['data'][i].userName+'</li>';
             };
             html += '</ul>';
             $('.ppt .game .result').html(html);

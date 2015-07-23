@@ -4,7 +4,7 @@
 
 
 ;$(function(){
-    localStorage.setItem('openId',31);
+    //localStorage.setItem('openId',200);
     window.router = Router(routes).configure({ recurse: 'forward' });
     router.init();
     if(!localStorage.getItem('openId')) location.hash = '/index/sign';
@@ -53,6 +53,8 @@
                     if(req['errorCode']==0){
                         tplData.showList.list[index].counter++;
                         tplData.showDetail.counter++;
+                    }else{
+                        alert(req['errorMsg']);
                     }
 
                 }
@@ -76,7 +78,7 @@
         })
         .on('click','.sign .btn',function(){
             var data = {
-                openid:params.openId,
+                openid:localStorage.getItem('openId'),
                 userName:$('#name').val(),
                 mobilePhone:$('#phone').val(),
                 areaId:tplData.sign.areaId
@@ -98,6 +100,8 @@
                 localStorage.setItem('mobilePhone',data.mobilePhone);
                 localStorage.setItem('area',tplData.sign.areaName);
                 localStorage.setItem('serialNo',req['userInfo']['serialNo']);
+                tplData.signSuccess.num = req['userInfo']['serialNo'];
+                tplData.signError.num = req['userInfo']['serialNo'];
                 if(req['userInfo']['isChecked']=='否'){
                     location.hash = '#/index/sign/error';
                 }
@@ -107,7 +111,7 @@
             },function(){
             });
         })
-        .on('click','.show li',function(){
+        .on('click','.show .upload li',function(){
 
             if($(this).index()==0)
                 var method = 'camera';
@@ -126,16 +130,21 @@
         .on('click','.top-list .js-vote',function(){
             var index = $(this).closest('li').index();
             var id = $(this).closest('li').data('id');
-            tplData.topList.list[index]['canVote'] = '0';
-            tplData.topList.list[index]['counter']++;
-            tplData.topList.hasVoteNum --;
             //tplData.topList.votes.push({activeUserId:id});
             /*if(tplData.topList.hasVoteNum<=0){
                 for(var i=0;i<tplData.topList.list.length;i++)
                     tplData.topList.list[i]['canVote']=='0';
             }*/
-            ajax('vote.do',{activityUserId:params['openId'],stepId:tplData.topList.stepId,toUserId:id},function(){
-                render('topList');
+            ajax('vote.do',{activityUserId:localStorage.getItem('openId'),stepId:tplData.topList.stepId,toUserId:id},function(req){
+                if(req['errorCode']==0){
+                    tplData.topList.list[index]['canVote'] = '0';
+                    tplData.topList.list[index]['counter']++;
+                    tplData.topList.hasVoteNum --;
+                    render('topList');
+                }else{
+                    alert(req['errorMsg']);
+                }
+
             });
 
             //console.log($(this).closest('li').data('id'));

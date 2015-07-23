@@ -12,7 +12,16 @@
             render('start');
         },
         '/show':function(){
-            render('show');
+            ajax('queryStepInfoById.do',{stepId:7},function(req){
+                //alert(req['data']['stepStatus']);
+                if(req['data']['stepStatus']==1)ajax('queryStepInfoById.do',{stepId:8},function(req){
+                    if(req['data']['stepStatus']==1)tplData.show.showBtn = true;
+                    render('show');
+                });
+                else if(req['data']['stepStatus']==0)alert('活动未开始')
+                else alert('活动已结束');
+            });
+
         },
         '/preview':function(){
             render('preview');
@@ -43,14 +52,18 @@
                 area:localStorage.getItem('areaName'),
                 phone:localStorage.getItem('mobilePhone')
             };
-            /*if(obj.openId){
+            if(obj.openId){
                 tplData.signSuccess = obj;
                 location.hash = '#/index/sign/success'
-            }*/
+            }
             render('sign');
+        },
+        '/sign/clear':function(){
+            localStorage.clear();
         },
         '/sign/success':function(){
             tplData.signSuccess.num = localStorage.getItem('serialNo');
+            //alert(tplData.signSuccess.num);
             render('signSuccess');
         },
         '/sign/error':function(){
@@ -69,12 +82,17 @@
                 case 15:chooseTitle(4);break;
             }*/
             if(id<10)
-                ajax('queryVoteInfo.do',{stepId:id,activityUserId:params.openId},function(req){
+                ajax('queryVoteInfo.do',{stepId:id,activityUserId:localStorage.getItem('openId')},function(req){
                     console.log(req);
                     tplData.topList.list = req['data'];
                     tplData.topList.hasVoteNum = req['personalVoteInfo']?3 - req['personalVoteInfo'].length:3;
                     //tplData.topList.votes = req['personalVoteInfo']||[];
                     tplData.topList.stepId = req['stepId'];
+                    if(id==5){
+                        for(var i=0;i<tplData.topList.list.length;i++){
+                            tplData.topList.list[i]['userName'] = false;
+                        }
+                    }
                     /*if(tplData.topList.hasVoteNum<=0){
                         for(var i=0;i<tplData.topList.list.length;i++){
                             tplData.topList.list[i]['canVote']=='0';

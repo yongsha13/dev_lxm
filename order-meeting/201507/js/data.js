@@ -27,6 +27,7 @@ var tplData = {
     },
     show:{
         baseUrl:baseUrl,
+        showBtn:false,
         list:[
             {
                 link:'javascript:;',
@@ -55,7 +56,7 @@ var tplData = {
     },
     sign:{
         baseUrl:baseUrl,
-        areaId:0,
+        areaId:1,
         areaName:''
     },
     signSuccess:{
@@ -63,14 +64,14 @@ var tplData = {
         name:'丛军华',
         phone:'020-12341234',
         area:'华中',
-        num:null
+        num:false
     },
     signError:{
         baseUrl:baseUrl,
         name:'丛军华',
         phone:'020-12341234',
         area:'华中',
-        num:null
+        num:false
     },
     topList: {
         baseUrl: baseUrl,
