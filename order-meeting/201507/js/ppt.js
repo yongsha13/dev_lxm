@@ -3,20 +3,33 @@
  */
 $(function(){
     $(window).resize(function(){
-        var marginTop = ($('.ppt').height()-$('.game').height())/2+'px';
+        var marginTop = ($('.ppt').height()-$('.ppt>div').height())/2+'px';
         console.log(marginTop);
-        $('.game').css('margin-top',marginTop);
+        $('.game,.diamond').css('margin-top',marginTop);
     });
     $(window).resize();
-    $('.ppt').on('click','.btn',function(){
+    $('.ppt .game').on('click','.btn',function(){
         $(this).hide();
         $('.num').show();
         console.log('start');
-        game.start();
+
+        ajax('raceControl.do',{stepId:6,stepStatus:1},function(req){
+            game.start();
+        });
     });
+    $('.ppt .diamond').on('click','.ctrl a',function(){
+        var $index = $(this).index();
+        if($index==0){
+            diamond.start();
+        }else if($index==1) {
+            diamond.ok();
+        }else{
+            diamond.jump();
+        }
+    })
 });
 var game = {
-    txt:['◊º±∏£°','3','2','1','ø™ º£°','”Œœ∑Ω· ¯'],
+    txt:['ÂáÜÂ§áÔºÅ','3','2','1','ÂºÄÂßãÔºÅ','Ê∏∏ÊàèÁªìÊùü'],
     $target:$('.ppt .game .num'),
     $gifTarget:$('.ppt .game .runs'),
     liveTime:3000,
@@ -76,10 +89,10 @@ var game = {
                 _self.gameOver();
                 clearInterval(t);
             }
-            $('.ppt .game .head').html(' £”‡ ±º‰<em>'+
+            $('.ppt .game .head').html('Ââ©‰ΩôÊó∂Èó¥<em>'+
             parseInt(_self.liveTime/100)+
             (_self.liveTime%100<10?'.0':'.')
-            +_self.liveTime%100+'</em>√Î');
+            +_self.liveTime%100+'</em>Áßí');
         },10);
     },
     gameOver:function(){
@@ -87,10 +100,98 @@ var game = {
         this.playTxt(5,function(){
             $('.ppt .game .runs img').remove();
             $('.ppt .game .result').slideDown();
-        })
+        });
+        ajax('raceResult.do',{stepId:6},function(req){
+            var html = '';
+            for(var i=0;i<req['data'].length;i++){
+                html+= '<li>'+req['data'][i].userName+'</li>';
+            };
+            $('.ppt .game .result').html(html);
+        });
         /*this.playTxt(5,4,function(){
 
          })*/
         /**/
     }
+}
+
+var diamond = {
+    speed:1,
+    speedMin:1,
+    speedMax:10,
+    dir:true,
+    num:0,
+    sNum:50,
+    cur:0,
+    userData : [],
+    curData : null,
+    $target:null,
+    start:function(){
+        var _self = this;
+        console.log('start');
+        this.$target = $('.ppt .diamond .avatar');
+        this.num=0;
+        this.dir=true;
+        var html = '<img src="./images/ppt/who.jpg">';
+        for(var i=1;i<=10;i++) html += '<img src="./images/ppt/r0'+i+'.jpg">';
+        $('.ppt .diamond .avatar').html(html);
+        this.run();
+        ajax('getSomeActivityUserInfo.do',{stepId:8},function(req){
+            _self.curData = req['userData'];
+            //_self.userData.push(req['userData']);
+
+            console.log(req);
+        });
+    },
+    ok:function(){
+        ajax('selectVoteUser.do',{stepId:8,activityUserId:this.curData.activityUserId},function(){
+            $('.ppt .diamond .ctrl a:eq(0)').show().siblings().hide();
+        });
+    },
+    jump:function(){
+        $('.ppt .diamond .ctrl a:eq(0)').show().siblings().hide();
+    },
+    run:function(){
+        this.num++;
+        if(this.dir&&this.speed<this.speedMax) this.speed++;
+        if(this.num==this.sNum){
+            if(this.curData){
+                this.dir=false;
+                this.userData.push(this.curData);
+                $('.ppt .diamond .avatar img:eq(8)').after('<img src="'+this.curData['photoUrl']+'">');
+            }else{
+                this.num=0;
+            }
+        }
+        if(!this.dir&&this.speed>this.speedMin) this.speed--;
+        //console.log('run:'+this.speed+':'+this.num);
+        var _self = this;
+        this.$target.animate({
+            textIndent:"-200px"
+        },1000/this.speed,function(){
+            _self.$target.append(_self.$target.find('img:first')).css('text-indent','0');
+            if(_self.speed>1)
+                _self.run();
+            else{
+                $('.ppt .diamond .ctrl a:eq(0)').hide().siblings().show();
+            }
+        });
+    }
+}
+
+function ajax(url,data,callback,errorback){
+    errorback = errorback || function(req){alert(req['errorMsg'])}
+    $.ajax({
+        url:params.ajaxBaseUrl+"/"+url,
+        type:'POST',
+        dataType:'JSON',
+        data:data,
+        success:function(req){
+            if(!req['errorCode']) errorback(req);
+            else callback(req);
+        },
+        error:function(){
+            errorback({errorMsg:'ÁΩëÁªúÈÄöËÆØÈîôËØØÔºåËØ∑Á°ÆÂÆöÁΩëÁªúÊòØÂê¶Á®≥ÂÆö'});
+        }
+    })
 }

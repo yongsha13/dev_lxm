@@ -12,11 +12,11 @@ var TPL = {
     liImg:
         '<li><a href="{{:link}}"><img src="{{:src}}" alt=""/><span>{{:name}}</span></a></li>',
     liTop:
-        '<li>\
+        '<li data-id="{{:activityUserId}}">\
             <img src="{{:#parent.parent.data.baseUrl}}/images/icon-ava.png" alt=""/>\
             {{if userName}}{{:userName}}-{{:areaName}}{{else}}{{:areaName}}{{/if}}\
-            {{if #parent.parent.data.hasVoteNum>0}}\
-            <span>\
+            {{if canVote=="1"&&#parent.parent.data.hasVoteNum>0}}\
+            <span class="js-vote">\
                 投票\
                 <img src="{{:#parent.parent.data.baseUrl}}images/icon-vot.png" alt=""/>\
             </span>\
@@ -45,6 +45,19 @@ var TPL = {
             <ul>\
                 {{for list tmpl="liImg"/}}\
             </ul>\
+            </section>\
+        </div>',
+    preview:
+        '<div class="preview">\
+            <a href="javascript:;" class="back">《</a>\
+            <img src="{{:img}}" alt=""/>\
+            <a href="javascript:;" class="btn red">确定上传</a>\
+        </div>',
+    showSuccess:
+        '<div class="show success">\
+            <section>\
+                <img src="{{:baseUrl}}images/success.png" alt=""/>\
+                <p>您的图片已经上传成功，<br>可以参与我们的抽奖活动！</p>\
             </section>\
         </div>',
     sign:
@@ -84,6 +97,7 @@ var TPL = {
             <section>\
                 <img src="{{:baseUrl}}images/success.png" alt=""/>\
                 <h2>尊敬的加盟商，您已经签到成功。</h2>\
+                {{if num}}房间号：{{:num}}{{/if}}\
                 <img src="{{:baseUrl}}images/back-ava.png" alt="" class="icon"/>\
                 <p>{{:name}}</p>\
                 <img src="{{:backUrl}}images/back-tel.png" alt="" class="icon"/>\
@@ -96,7 +110,8 @@ var TPL = {
         '<div class="sign success">\
             <section>\
                 <img src="{{:baseUrl}}images/sign-error.png" alt=""/>\
-                <h2>您已签到，但填写的资料匹配有误，请寻找现场工作人员办理相关手续。</h2>\
+                <h2>尊敬的加盟商，您已签到成功，请找工作人员为您办理相关手续。</h2>\
+                {{if num}}房间号：{{:num}}{{/if}}\
                 <img src="{{:baseUrl}}images/back-ava.png" alt="" class="icon"/>\
                 <p>{{:name}}</p>\
                 <img src="{{:backUrl}}images/back-tel.png" alt="" class="icon"/>\

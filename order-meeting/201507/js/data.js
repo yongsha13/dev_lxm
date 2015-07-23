@@ -39,6 +39,12 @@ var tplData = {
             }
         ]
     },
+    preview:{
+        img:''
+    },
+    showSuccess:{
+        baseUrl:baseUrl
+    },
     sign:{
         baseUrl:baseUrl,
         areaId:0,
@@ -48,18 +54,22 @@ var tplData = {
         baseUrl:baseUrl,
         name:'丛军华',
         phone:'020-12341234',
-        area:'华中'
+        area:'华中',
+        num:null
     },
     signError:{
         baseUrl:baseUrl,
         name:'丛军华',
         phone:'020-12341234',
-        area:'华中'
+        area:'华中',
+        num:null
     },
     topList: {
         baseUrl: baseUrl,
         title:'最具人气模特奖',
         hasVoteNum:0,
+        stepId:0,
+        votes:[],
         list: [
         ]
     },
@@ -72,7 +82,10 @@ var tplData = {
     voteError:{
         baseUrl:baseUrl
     },
-    shake:{},
+    shake:{
+        title:'活动未开始，请稍候...',
+        leftSecond:0
+    },
     shakeGame:{
         baseUrl:baseUrl
     },

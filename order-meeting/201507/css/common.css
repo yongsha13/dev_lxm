@@ -15,6 +15,9 @@ a.btn.red{ background: #d2112e;}
 .show ul { width: 20rem; margin: 0 auto;}
 .show ul li{float:left; width: 9rem; margin: .3rem; text-align: center; border: .15rem dashed #231815; border-radius: 1rem;}
 .show ul li span{ line-height: 2rem;}
+.show.success{ text-align: center; line-height: 3rem;}
+.show.success img{ width: 30%;}
+.preview a.btn{ position: fixed; bottom: .5rem; left: 0; width: 100%;}
 
 .sign section {text-align: center; padding-top: 5rem; width: 20rem; margin: 0 auto;}
 .sign section img{ width: 70%;}
@@ -63,6 +66,12 @@ a.btn.red{ background: #d2112e;}
 .ppt .game .result ul{padding: 146px 110px; text-align: center; color: #fff;}
 .ppt .game .result ul li{float:left; text-align: left; width: 200px; height: 36px; line-height: 24px; padding-left: 30px; background-image: url(../images/ppt/dot.png); background-repeat: no-repeat; background-size: 20px;}
 .ppt .game .btn{ margin: 100px auto 0; width: 100px; background: #1aa000; height: 50px; line-height: 50px; font-size: 25px; border: 2px solid #fff; border-radius: 30px; box-shadow: 5px 5px 10px #000;}
+.ppt .diamond{position: relative; margin: 0 auto; width: 840px; height: 520px; background-image: url(../images/ppt/bg-diamanod01.jpg); background-size: 100%;}
+.ppt .diamond section{ padding: 100px 0 0;}
+.ppt .diamond .avatar{ margin: 0 auto; width: 200px; height:270px;border: 2px solid #e5c7bd; overflow: hidden; word-break: keep-all; white-space: nowrap;}
+.ppt .diamond .ctrl { text-align: center; padding: 30px;}
+.ppt .diamond .ctrl a{ display: inline-block; width: 100px;}
+
 @media screen and (max-width: 280px) {html,body{ font-size: 12px;}}
 @media screen and (min-width: 280px) and (max-width: 300px) {html,body{ font-size: 13px;}}
 @media screen and (min-width: 300px) and (max-width: 320px) {html,body{ font-size: 14px;}#detail .cnt{top: 24.4rem;}}

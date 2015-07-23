@@ -1,19 +1,50 @@
 /**
  * Created by wangyong on 14-9-24.
  */
+
+
 ;$(function(){
+    params['openId'] = 14;
     window.router = Router(routes).configure({ recurse: 'forward' });
     router.init();
-    //if(!localStorage.getItem('userActivityUserId')) location.hash = '/index/sign';
+    if(!localStorage.getItem('openId')) location.hash = '/index/sign';
     location.hash.length>0 || (location.hash = '/index/start');
     $('#mn')
         .on('click','.back',function(){
             history.go(-1);
         })
+        .on('click','.preview .btn',function(){
+            //alert('inBtn');
+            wx.uploadImage({
+                localId:tplData.preview.img,
+                isShowProgressTips:1,
+                success:function(res){
+                    var serverId = res.serverId;
+                    //alert('inAjax');
+                    $.ajax({
+                        url:'/orderMeeting2/OiOMForVote/getUserPic.do',
+                        type:'POST',
+                        dataType:'JSON',
+                        data:{activityUserId:localStorage.getItem('openId'),picId:serverId},
+                        success:function(req){
+                            location.hash = '#/index/show-success';
+                            /*alert('上传成功');
+                            console.log(req);*/
+                        },
+                        error:function(){
+                            alert('上传失败');
+                        }
+                    });
+                }
+            });
+        })
         .on('click','.sign .box span',function(){
             tplData.sign.areaId = $(this).index()+1;
             tplData.sign.areaName = $(this).html();
             $(this).addClass('cur').siblings().removeClass('cur');
+        })
+        .on('click','.shake .btn',function(){
+            ajax('');
         })
         .on('click','.sign .btn',function(){
             var data = {
@@ -34,30 +65,52 @@
             tplData.signError['phone'] = data.mobilePhone;
             tplData.signError['area'] = tplData.sign.areaName;
             ajax('signin.do',data,function(req){
-                localStorage.setItem('userActivityUserId',req['activityUserId'])
-                location.hash = '#/index/sign/success';
+                localStorage.setItem('openId',req['userInfo']['activityUserId']);
+                localStorage.setItem('userName',data.userName);
+                localStorage.setItem('mobilePhone',data.mobilePhone);
+                localStorage.setItem('area',tplData.sign.areaName);
+                localStorage.setItem('serialNo',req['userInfo']['serialNo']);
+                if(req['userInfo']['isChecked']=='否'){
+                    location.hash = '#/index/sign/error';
+                }
+                if(req['userInfo']['isChecked']=='是'){
+                    location.hash = '#/index/sign/success';
+                }
             },function(){
-                location.hash = '#/index/sign/error';
             });
         })
         .on('click','.show li',function(){
 
             if($(this).index()==0)
-                var method = 'album';
-            else
                 var method = 'camera';
-
-
+            else
+                var method = 'album';
             wx.chooseImage({
                 count:1,
                 sizeType:['original'],
                 sourceType:[method],
                 success:function(res){
-                    alert('a');
-                    var localIds = res.localIds;
-                    console.log(localIds);
+                    tplData.preview.img = res.localIds[0];
+                    location.hash = '#/index/preview'
                 }
             });
+        })
+        .on('click','.top-list .js-vote',function(){
+            var index = $(this).closest('li').index();
+            var id = $(this).closest('li').data('id');
+            tplData.topList.list[index]['canVote'] = '0';
+            tplData.topList.list[index]['counter']++;
+            tplData.topList.hasVoteNum --;
+            //tplData.topList.votes.push({activeUserId:id});
+            /*if(tplData.topList.hasVoteNum<=0){
+                for(var i=0;i<tplData.topList.list.length;i++)
+                    tplData.topList.list[i]['canVote']=='0';
+            }*/
+            ajax('vote.do',{activityUserId:params['openId'],stepId:tplData.topList.stepId,toUserId:id},function(){
+                render('topList');
+            });
+
+            //console.log($(this).closest('li').data('id'));
         })
 });
 
@@ -111,7 +164,9 @@ function doResult() {
     //alert("摇动了");
     if(w<18)w += 1;
     else{
-        ajax('race.do',{},function(){});
+        ajax('raceResult.do',{stepId:6,activityUserId:localStorage.getItem('openId'),percent:100},function(){
+            location.hash='#/index/shake-success'
+        });
     }
     $('.shake .banner .em').css('width',w+'rem');
     /*document.getElementById("result").className = "result";
