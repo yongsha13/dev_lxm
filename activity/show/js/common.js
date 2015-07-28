@@ -17,6 +17,7 @@
             game.select($(this).index());
         })
         .on('click','.js-share',function(){
+            alert('share');
             wx.onMenuShareTimeline({
                 title:'别问那么多,我就是要送你奖品',
                 link:'http://www.wxbinf.com/newPrd/index.jsp',
@@ -41,8 +42,8 @@
         .on('click','.show ul li',function(){
             var index = $(this).index();
             var ar = ['camera','album'];
-            alert(ar[index]);
-            alert(JSON.stringify(params));
+            //alert(ar[index]);
+            //alert(JSON.stringify(params));
             wx.chooseImage({
                 count:1,
                 sizeType: ['original', 'compressed'],
@@ -66,8 +67,7 @@
                 mediaId:tplData.preview.serverId,
                 fromOpenid:params['openid']
             },function(req){
-                alert('上传图片成功');
-                location.hash = '#/index/show';
+                location.hash = '#/index/show/address';
             })
         })
         .on('click','.top-list .more',function(){
@@ -101,6 +101,22 @@
             tplData.topList.lastId =1;
             location.hash = '#/index/top-list/'+$(this).val();
         })
+        .on('click','.js-show-address-btn',function(){
+            ajax('photoService.do',{
+                opType:'saveUserInfo',
+                fromOpenid:params['openid'],
+                areaId:$('#areaId').val(),
+                activityId:'newPRD201507',
+                userName:$('#name').val(),
+                userPhone:$('#phone').val(),
+                userAddress:$('#address').val(),
+                shopUserMobile:$('#shopPhone').val(),
+                shopUserName:$('#shopName').val()
+            },function(){
+                alert('提交成功');
+                location.hash = '#/index/show'
+            });
+        })
 });
 var game = {
     start:function(){
@@ -132,7 +148,6 @@ var game = {
                     opType:'getMyLucky',
                     fromOpenid : params['openid']
                 },function(req){
-
                     if(req['award_1']=='1')tplData.game.prizeRemoteNum=1;
                     else if(req['award_2']=='1')tplData.game.prizeRemoteNum=2;
                     else if(req['award_3']=='1')tplData.game.prizeRemoteNum=3;
@@ -228,5 +243,3 @@ function ajax(url,data,callback,errorback){
         }
     })
 }
-
-var a = {errorCode:0,errorMsg:'成功',areaId:0,activityId:'newPRD201507',startNum:1,batchNum:5,photoData:[{userId:6,smallPhotoUrl:'http:\/\/www.wxbinf.com\/newPrd\/userImgs\/abc123_small.jpg',bigPhotoUrl:'http:\/\/www.wxbinf.com\/newPrd\/userImgs\/1507271853200123.jpg',praiseNum:10,sortNum:1},{userId:7,smallPhotoUrl:'http:\/\/www.wxbinf.com\/newPrd\/userImgs\/abc123_small.jpg',bigPhotoUrl:'http:\/\/www.wxbinf.com\/newPrd\/userImgs\/abc123.jpg',praiseNum:4,sortNum:2},{userId:9,smallPhotoUrl:'http:\/\/www.wxbinf.com\/newPrd\/userImgs\/abc123_small.jpg',bigPhotoUrl:'http:\/\/www.wxbinf.com\/newPrd\/userImgs\/abc123.jpg',praiseNum:2,sortNum:3},{userId:8,smallPhotoUrl:'http:\/\/www.wxbinf.com\/newPrd\/userImgs\/abc123_small.jpg',bigPhotoUrl:'http:\/\/www.wxbinf.com\/newPrd\/userImgs\/abc123.jpg',praiseNum:1,sortNum:4},{userId:12,smallPhotoUrl:'http:\/\/file.api.weixin.qq.com\/cgi-bin\/media\/get?access_token=yc5utzOBIhb0RYlz3TPcsR_dhLDKne_QurZxW_4DUzX1lhwpy7KIbQUroZ9Cc3g2iUETgLHC-9vSn6SN9jSE5pO3GyG2fe9MT6H8EC289dc&media_id=DGticBAP-8XeZ0_Kpo3PG0B264Qw7xjPBZYO3eUQH2rQjRlOP2COmtPatEjnp3ry',bigPhotoUrl:'http:\/\/file.api.weixin.qq.com\/cgi-bin\/media\/get?access_token=yc5utzOBIhb0RYlz3TPcsR_dhLDKne_QurZxW_4DUzX1lhwpy7KIbQUroZ9Cc3g2iUETgLHC-9vSn6SN9jSE5pO3GyG2fe9MT6H8EC289dc&media_id=DGticBAP-8XeZ0_Kpo3PG0B264Qw7xjPBZYO3eUQH2rQjRlOP2COmtPatEjnp3ry',praiseNum:0,sortNum:5}]}

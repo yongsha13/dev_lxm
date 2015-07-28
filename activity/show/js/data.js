@@ -230,5 +230,11 @@ var tplData = {
         baseUrl:baseUrl,
         localId:'',
         serverId:''
+    },
+    showAddress:{
+        title:'用户联系信息',
+        baseUrl:baseUrl,
+        opList:['全国','华东','华中','华南','华北','西北','西南','川渝'],
+        areaId:0
     }
 }

@@ -241,7 +241,8 @@ ul li span {
 	padding-right: 0;
 }
 .game-address ul li input,
-.game-address ul li textarea {
+.game-address ul li textarea,
+.game-address ul li select{
 	float: right;
 	width: 14rem;
 	border: 1px solid #d9598a;

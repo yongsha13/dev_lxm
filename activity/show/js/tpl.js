@@ -54,6 +54,41 @@ var TPL = {
                 <div class="btn red">上传</div>\
             </section>\
         </div>',
+    showAddress:
+        '<div class="game-address show-address">\
+            {{include tmpl="header"/}}\
+            <form>\
+                <ul>\
+                    <li>\
+                    <p><label for="name">所属大区:</label>\
+                    <select id="areaId">\
+                        {{for opList tmpl="topListOp"/}}\
+                    </select>\
+                    </li>\
+                    <li>\
+                    <p><label for="name">用户姓名:</label>\
+                    <input type="text" id="name"/></p>\
+                    </li>\
+                    <li>\
+                    <p><label for="phone">用户手机:</label>\
+                    <input type="text" id="phone"/></p>\
+                    </li>\
+                    <li>\
+                    <p><label for="address">联系地址:</label>\
+                    <textarea id="address"></textarea></p>\
+                    </li>\
+                    <li>\
+                    <p><label for="shopName">店员姓名:</label>\
+                    <input type="text" id="shopName"/></p>\
+                    </li>\
+                    <li>\
+                    <p><label for="shopPhone">店员手机:</label>\
+                    <input type="text" id="shopPhone"/></p>\
+                    </li>\
+                    <a href="#" class="btn red js-show-address-btn" style="margin-top: 20px;">保存</a>\
+                </ul>\
+            </form>\
+        </div>',
     game:
         '<div class="game">\
             {{include tmpl="header"/}}\
