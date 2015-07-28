@@ -44,6 +44,7 @@ var TPL = {
             <ul>\
                 {{for list tmpl="li"/}}\
             </ul>\
+            <a href="userInfoList.html" class="btn violet">参赛图片</a>\
             <a href="#/index/rule" class="btn red">活动规则</a>\
         </div>',
     preview:
@@ -228,7 +229,7 @@ var TPL = {
                 {{/if}}\
                 <a href="javascript:;" class="btn red">我的抽奖机会</a>\
                 <p class="red"><span>你有<em>0</em>次抽奖机会</span><br>点击右上角分享给好友，赢取更多抽奖机会吧！</p>\
-                <a href="javascript:;" class="btn violet js-share">分享到朋友圈</a>\
+                <!--<a href="javascript:;" class="btn violet js-share">分享到朋友圈</a>-->\
             </section>\
         </div>',
     prodCate:

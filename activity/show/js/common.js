@@ -108,7 +108,7 @@
                 areaId:$('#areaId').val(),
                 activityId:'newPRD201507',
                 userName:$('#name').val(),
-                userPhone:$('#phone').val(),
+                userMobile:$('#phone').val(),
                 userAddress:$('#address').val(),
                 shopUserMobile:$('#shopPhone').val(),
                 shopUserName:$('#shopName').val()
