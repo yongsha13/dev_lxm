@@ -22,8 +22,8 @@ var TPL = {
         </li>',
     topLi:
         '<li>\
-            <a href="{{:url}}">\
-                <img src="{{:#parent.parent.data.baseUrl}}{{:src}}" alt="{{:name}}"/>\
+            <a href="userInfo.jsp?id={{:openId}}">\
+                <img src="{{:src}}" alt="{{:name}}"/>\
                 <span class="praise">{{:praise}}</span><span class="sort">{{:sort}}</span>\
             </a>\
         </li>',
@@ -50,7 +50,7 @@ var TPL = {
         '<div class="preview">\
             {{include tmpl="header"/}}\
             <section>\
-                <img src="{{:baseUrl}}/images/photo-1.jpg" alt=""/>\
+                <img src="{{:localId}}" alt=""/>\
                 <div class="btn red">上传</div>\
             </section>\
         </div>',
@@ -79,14 +79,13 @@ var TPL = {
             <img src="{{:baseUrl}}{{:src}}" alt=""/><br>\
             您还获得：<br>\
             <span class="txt">盘发券或妆容卷及经典面膜一张</span>\
-            <a href="#" class="btn violet">我的卡包</a>\
+            <a href="#/index/menu" class="btn violet">我的卡包</a>\
             <a href="#/index/address" class="btn red">填写收件地址</a>\
             </p>\
             </section>\
         </div>',
     gamePrizeNone:
         '<div class="game-prize">\
-            {{:~debug(title)}}\
             {{include tmpl="header"/}}\
             <section>\
             <p>\
@@ -99,7 +98,7 @@ var TPL = {
             <ul>\
                 {{for list tmpl="li"/}}\
             </ul>\
-            <a class="btn red">继续翻牌</a>\
+            {{if prizeTimes>0}}<a href="#/index/game" class="btn red">继续翻牌</a>{{/if}}\
             </p>\
             </section>\
         </div>',
@@ -109,18 +108,18 @@ var TPL = {
             <form>\
                 <ul>\
                     <li>\
-                    <label for="name">收货人：</label>\
-                    <input type="text" id="name"/>\
+                    <p><label for="name">收货人:</label>\
+                    <input type="text" id="name"/></p>\
                     </li>\
                     <li>\
-                    <label for="phone">手机号码：</label>\
-                    <input type="text" id="phone"/>\
+                    <p><label for="phone">手机号码:</label>\
+                    <input type="text" id="phone"/></p>\
                     </li>\
                     <li>\
-                    <label for="address">收货地址：</label>\
-                    <textarea id="address"></textarea>\
+                    <p><label for="address">收货地址:</label>\
+                    <textarea id="address"></textarea></p>\
                     </li>\
-                    <a href="#" class="btn red">保存</a>\
+                    <a href="#" class="btn red" style="margin-top: 20px;">保存</a>\
                 </ul>\
             </form>\
         </div>',
@@ -142,45 +141,45 @@ var TPL = {
         '<div class="rule">\
         {{include tmpl="header"/}}\
             <section>\
-                <label>活动名称：</label> Show出流行美\
+                <label>活动名称 :</label> Show出流行美\
             </section>\
             <section>\
-                <label>活动时间：</label> 7月25日-8月9日\
+                <label>活动时间 :</label> 7月29日9:00-8月10日24:00\
             </section>\
             <section>\
-                <label>活动规则：</label><br>\
-                我们&middot;Show出流行美真人秀，礼品免费送。顾客做造型，和店员一起拍照并上传，参与集攒活动。顾客与店员合照的点赞数量符合以下排名，即有机会赢取流行美定制项链。\
+                <label>活动规则 :</label>\
+                我们&middot;Show出流行美真人秀，礼品免费送。顾客做造型，和店员一起拍照并上传，参与集赞活动。顾客与店员合照的点赞数量符合以下排名，即有机会赢取流行美定制项链。\
                 <table>\
                 <thead>\
                 <tr>\
                 <td rowspan="2">地区</td>\
-                <td colspan="3">点赞数量排名</td>\
+                <td colspan="3" style="padding: 10px 0; font-size: 16px;">点赞数量排名</td>\
                 </tr>\
                 <tr>\
-                <td>第一波<br>(7月30日)</td>\
-                <td>第二波<br>(8月4日)</td>\
-                <td>第三波<br>(8月9日)</td>\
+                <td>第一波<br><span style="font-size: 12px;">(8月2日)</span></td>\
+                <td>第二波<br><span style="font-size: 12px;">(8月6日)</span></td>\
+                <td>第三波<br><span style="font-size: 12px;">(8月11日)</span></td>\
                 </tr>\
                 </thead>\
                 <tbody>\
                 {{for list}}\
-                    <tr><th>{{:area}}</th><td>前{{:fst}}名</td><td>前{{:sec}}名</td><td>前{{:thd}}名</td></tr>\
+                    <tr><th>{{:area}}</th><td style="text-align: left; text-indent: 1em;">{{:fst}}名</td><td style="text-align: left; text-indent: 1em;">{{:sec}}名</td><td style="text-align: left; text-indent: 1em;">{{:thd}}名</td></tr>\
                 {{/for}}\
                 </tbody>\
                 </table>\
-                凡参与者可当场获得<strong>经典面膜一份。</strong>\
+                凡参与者可当场获得<strong style="padding: 0 5px; font-size: 16px;">经典面膜一份。</strong>\
             </section>\
             <section>\
-            在众多合照中，流行美专家将评比出“风采组合”，参与者与店员将获得终极大奖——<strong>价值3000元iPad Mini3一台。</strong><br>\
-            <img src="./images/necklace.png" alt=""/><img src="./images/ipad-mini3.png" alt=""/><br>\
-            <strong>2400对流行美专属定制项链，<br>80部iPad Mini3等你拿！</strong><br>\
-            你敢秀，我就送！<br>\
-            美丽不NG，Show出流行美！\
+            <p style="font-size: 14px; line-height: 1.2;">在众多合照中，流行美专家将评比出"风采组合",参与者与店员将获得终极大奖——<strong style="padding: 0 5px; font-size: 16px;">价值3000元iPad Mini3一台。</strong></p>\
+            <p style="padding: 15px 0;"><img src="./images/necklace.png" alt=""/><img src="./images/ipad-mini3.png" alt=""/></p>\
+            <p style="font-size: 14px; line-height: 1.2;"><strong>2400对流行美专属定制项链,<br>80部iPad Mini3等你拿！</strong></p>\
+            <p style="padding-top: 10px;font-size: 14px; line-height: 1.2;">你敢秀，我就送！</p>\
+            <p style="font-size: 14px; line-height: 1.2;"> 美丽不NG，Show出流行美！</p>\
             </section>\
-            <section>\
-            <label>PS:</label><br>\
-            1.每位参与者只能享受一次获礼机会，如重复出现在中奖排名中，将由下一名未中奖用户获奖。<br>\
-            2.每位店员可与多位顾客参与活动，但店员只能享受一次获礼机会。\
+            <section style="padding-top: 30px;padding-bottom: 30px;">\
+            <label style="color: red;">注意事项:</label>\
+            <p style="padding-top: 5px;font-size: 14px; line-height: 1.2;">1.每位参与者只能享受一次获礼机会，如重复出现在中奖排名中，将由下一名未中奖用户获奖。</p>\
+            <p style="padding-top: 10px;font-size: 14px; line-height: 1.2;">2.每位店员可与多位顾客参与活动，但店员只能享受一次获礼机会。</p>\
             </section>\
         </div>',
     menu:
@@ -194,6 +193,7 @@ var TPL = {
                 {{/if}}\
                 <a href="javascript:;" class="btn red">我的抽奖机会</a>\
                 <p class="red"><span>你有<em>0</em>次抽奖机会</span><br>点击右上角分享给好友，赢取更多抽奖机会吧！</p>\
+                <a href="javascript:;" class="btn violet js-share">分享到朋友圈</a>\
             </section>\
         </div>',
     prodCate:
@@ -216,30 +216,42 @@ var TPL = {
             <div class="top">\
             大区：\
             <select name="area" id="area">\
-                <option value="0">华南</option>\
-                <option value="1">华中</option>\
+                {{for opList tmpl="topListOp"/}}\
             </select>\
-            <a href="#" class="btn red">我要参加</a>\
+            <a href="index.jsp#/index/show" class="btn red">我要参加</a>\
             </div>\
             <ul>\
-                {{for list tmpl="topLi"/}}\
+                {{if isLoading}}\
+                <p>正在加载数据，请稍候...</p>\
+                {{else}}\
+                {{include tmpl="topListUl"/}}\
+                {{/if}}\
             </ul>\
         </div>',
+    'topListOp':
+        '<option value="{{:#index}}" {{if #parent.parent.data.areaId==#index}} selected ="true"{{/if}}>{{:#data}}</option>',
+    'topListUl':
+        '{{for list tmpl="topLi"/}}\
+        {{if isListEnd}}\
+        <li class="none">没有更多数据啦！</li>\
+        {{else}}\
+        <li class="more">查看更多</li>\
+        {{/if}}',
     'homepage':
     '<div class="homepage">\
     {{include tmpl="header"/}}\
     <section>\
         <div class="info">\
-            大区：华东\
-            编号：1314\
-            <a href="#" class="btn violet">排行榜</a>\
+            大区：{{:area}}\
+            编号：{{:photoId}}\
+            <a href="#/index/top-list" class="btn violet">排行榜</a>\
         </div>\
-        <img src="./images/photo-1.jpg" alt=""/>\
+        <img src="{{:src}}" alt=""/>\
         <div class="vote">\
-            <span class="praise">230</span>\
-            <span class="sort">100</span>\
-            <a href="#" class="btn red">我要参加</a>\
-            <a href="#" class="btn red">返回首页</a>\
+            <span class="praise">{{:praise}}</span>\
+            <span class="sort">{{:sort}}</span>\
+            <a href="#/index/show" class="btn red">我要参加</a>\
+            <a href="javascript:;" class="btn red js-vote">投票</a>\
         </div>\
     </section>\
     </div>',

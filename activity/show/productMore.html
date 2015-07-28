@@ -33,51 +33,55 @@
 	</head>
 
 	<body>
-		<div id="mn"></div>
-		<script src="./js/base.js"></script>
-		<script src="./js/jquery-1.7.2.js"></script>
-		<script src="./js/drag.js"></script>
-		<script src="./js/director.js"></script>
-		<script src="./js/jsrender.js"></script>
-		<script src="./js/tpl.js"></script>
-		<script src="./js/data.js"></script>
-		<script src="./js/config.js"></script>
-		<script src="./js/common.js"></script>
-		<script>
-			var params = {
-				openId:'',//微信用户ID
-				appId:'',//公众号ID
-				timestamp:'',
-				nonceStr:'',
-				signature:'',
-				baseAjaxUrl:'http://www.wxbinf.com/newPrd/'
-			}
-			//微信配置
-			if(window['wx']){
-				wx.config({
-					debug: true,
-					appId: params['appId'],
-					timestamp: params['timestamp'],
-					nonceStr: params['nonceStr'],
-					signature: params['signature'],
-					jsApiList: ['chooseImage', 'previewImage','uploadImage','downloadImage'] // 功能列表，我们要使用JS-SDK的什么功能
+		<div id="mn">
+			<div class="newProduct">
+				<h1 id="js-product-title">产品分类</h1>
+				<div class="product-type-wrap">
+					<ul class="product-type">
+						<li>
+							<a href="productList.html?from=type1" class="type-wrap">
+								<div class="type-box">
+									<p><img src="images/cate-1.jpg" /></p>
+									<p class="type-title">布艺系列</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="productList.html?from=type2" class="type-wrap">
+								<div class="type-box">
+									<p><img src="images/cate-2.jpg" /></p>
+									<p class="type-title">合金系列</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="productList.html?from=type3" class="type-wrap">
+								<div class="type-box" style="background-color: #000;">
+									<p><img src="images/cate-3.jpg" /></p>
+									<p class="type-title" style="color: #FFF;">套装系列</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="productList.html?from=type4" class="type-wrap">
+								<div class="type-box">
+									<p><img src="images/cate-4.jpg" /></p>
+									<p class="type-title">儿童系列</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				// 点击返回 时，回到上一页
+				$('#mn>div>h1:before').bind('click', function() {
+					window.history.back();
 				});
-				wx.ready(function () {
-
-					wx.checkJsApi({
-						jsApiList: [
-							'chooseImage', 'previewImage','uploadImage','downloadImage'
-						]
-					});
-
-					//hide
-					//wx.hideAllNonBaseMenuItem();
-					//wx.hideOptionMenu();
-				});
-				wx.error(function (res) {
-					//alert("error: "+ res.errMsg);
-				});
-			}
+			});
 		</script>
 	</body>
 

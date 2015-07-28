@@ -155,6 +155,7 @@ var diamond = {
         $('.ppt .diamond .ctrl a:eq(0)').show().siblings().hide();
     },
     run:function(){
+        var _self = this;
         this.num++;
         if(this.dir&&this.speed<this.speedMax) this.speed++;
         if(this.num==this.sNum){
@@ -177,6 +178,20 @@ var diamond = {
                 _self.run();
             else{
                 $('.ppt .diamond .ctrl a:eq(0)').hide().siblings().show();
+                if(_self.userData.length>=10){
+                    $('.diamond').hide()
+                    $('.result').show();
+                    var html = '';
+                    for(var i=0;i<_self.userData.length;i++)
+                        html += '<li>'+
+                        '<img src="./images/photo-1.jpg" alt=""/>'+
+                        '<div class="info">'+
+                        _self.userData[i].counter+'票'+
+                        '<span class="name">从军华</span>'+
+                        '</div>'+
+                        '</li>';
+                    $('.result ul').html(html);
+                }
             }
         });
     }

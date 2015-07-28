@@ -6,9 +6,13 @@
  * jQuery validate 配置
  * @type {{contactEdit: {debug: boolean, errorClass: string, errorElement: string, rules: {name: {required: boolean, minlength: number}, nick: {minlength: number}, address: {maxlength: number}, explain: {maxlength: number}, mobile: {number: boolean, rangelength: number[]}}}}}
  */
+
+
+
 ;function render(name){
     $('#mn').html($.templates[name].render(tplData[name]));
 }
+
 ;var routes = {
     '/index':{
         on:function(){
@@ -20,10 +24,11 @@
             render('start');
         },
         '/game':function(){
-            if(tplData.game.prizeNum==0)
+            //alert(tplData.game.prizeNum);
+            if(tplData.game.prizeRemoteNum<0)
                 render('game');
             else
-                location.hash = '#/index/prize/'+tplData.game.prizeNum;
+                location.hash = '#/index/prize/'+tplData.game.prizeRemoteNum;
             game.start();
         },
         '/prize/:id':function(id){
@@ -49,8 +54,34 @@
         '/prod-list':function(){
             render('prodList');
         },
-        '/top-list':function(){
+        '/top-list/:id':function(id){
+            tplData.topList.isLoading = true;
+            tplData.topList.areaId = id?id:0;
             render('topList');
+            ajax('photoService.do',{
+                opType:'getPhotoList',
+                activityId:'newPRD201507',
+                areaId:tplData.topList.areaId,
+                fromOpenid:params['openId'],
+                startNum:tplData.topList.lastId,
+                batchNum:10
+            },function(req){
+                tplData.topList.isLoading = false;
+                console.log(req);
+                if(req['batchNum']<10) tplData.topList.isListEnd = true;
+                tplData.topList.lastId += 10;
+                for(var i=0;i<req['photoData'].length;i++)
+                tplData.topList.list.push({
+                    url:'javascript:;',
+                    src:req['photoData'][i]['smallPhotoUrl'],
+                    bigSrc:req['photoData'][i]['bigPhotoUrl'],
+                    praise:req['photoData'][i]['praiseNum'],
+                    sort:req['photoData'][i]['sortNum'],
+                    openId:req['photoData'][i]['userId']
+                });
+                console.log('页面');
+                render('topList');
+            });
         },
         '/homepage':function(){
             render('homepage');

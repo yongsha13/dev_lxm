@@ -50,34 +50,18 @@
 				timestamp:'',
 				nonceStr:'',
 				signature:'',
+				topList:true,
 				baseAjaxUrl:'http://www.wxbinf.com/newPrd/'
 			}
-			//微信配置
-			if(window['wx']){
-				wx.config({
-					debug: true,
-					appId: params['appId'],
-					timestamp: params['timestamp'],
-					nonceStr: params['nonceStr'],
-					signature: params['signature'],
-					jsApiList: ['chooseImage', 'previewImage','uploadImage','downloadImage'] // 功能列表，我们要使用JS-SDK的什么功能
-				});
-				wx.ready(function () {
-
-					wx.checkJsApi({
-						jsApiList: [
-							'chooseImage', 'previewImage','uploadImage','downloadImage'
-						]
+			$(function() {
+				(function() {
+					//$('#mn .s1 a').attr('href', 'product.html');
+					// 点击返回 时，回到上一页
+					$('#mn>div>h1:before').bind('click', function() {
+						window.history.back();
 					});
-
-					//hide
-					//wx.hideAllNonBaseMenuItem();
-					//wx.hideOptionMenu();
-				});
-				wx.error(function (res) {
-					//alert("error: "+ res.errMsg);
-				});
-			}
+				}());
+			});
 		</script>
 	</body>
 

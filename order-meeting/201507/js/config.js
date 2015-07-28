@@ -9,6 +9,7 @@
             console.log('/index');
         },
         '/start':function(){
+
             render('start');
         },
         '/show':function(){
@@ -47,10 +48,10 @@
         '/sign':function(){
             var obj = {
                 baseUrl:baseUrl,
-                openId:localStorage.getItem('openId'),
-                name:localStorage.getItem('userName'),
-                area:localStorage.getItem('areaName'),
-                phone:localStorage.getItem('mobilePhone')
+                openId:$.cookie('openId'),
+                name:$.cookie('userName'),
+                area:$.cookie('areaName'),
+                phone:$.cookie('mobilePhone')
             };
             if(obj.openId){
                 tplData.signSuccess = obj;
@@ -62,12 +63,18 @@
             localStorage.clear();
         },
         '/sign/success':function(){
-            tplData.signSuccess.num = localStorage.getItem('serialNo');
+            tplData.signSuccess.num = $.cookie('serialNo');
+            tplData.signSuccess.name= $.cookie('userName');
+            tplData.signSuccess.phone= $.cookie('mobilePhone');
+            tplData.signSuccess.area = $.cookie('area');
             //alert(tplData.signSuccess.num);
             render('signSuccess');
         },
         '/sign/error':function(){
-            tplData.signError.num = localStorage.getItem('serialNo');
+            tplData.signError.num = $.cookie('serialNo');
+            tplData.signError.name= $.cookie('userName');
+            tplData.signError.phone= $.cookie('mobilePhone');
+            tplData.signError.area = $.cookie('area');
             render('signError');
         },
         '/top-list/:id':function(id){
@@ -82,8 +89,9 @@
                 case 15:chooseTitle(4);break;
             }*/
             if(id<10)
-                ajax('queryVoteInfo.do',{stepId:id,activityUserId:localStorage.getItem('openId')},function(req){
+                ajax('queryVoteInfo.do',{stepId:id,activityUserId:$.cookie('openId')},function(req){
                     console.log(req);
+                    tplData.topList.stepStatus=req['stepStatus'];
                     tplData.topList.list = req['data'];
                     tplData.topList.hasVoteNum = req['personalVoteInfo']?3 - req['personalVoteInfo'].length:3;
                     //tplData.topList.votes = req['personalVoteInfo']||[];
@@ -161,6 +169,7 @@
             } else {
                 alert('本设备不支持devicemotion事件');
             }
+            ajax('race.do',{stepId:6,activityUserId:$.cookie('openId'),percent:0},function(){});
             render('shakeGame');
         },
         '/shake-success':function(){

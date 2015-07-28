@@ -8,7 +8,7 @@ var tplData = {
         list:[
             {
                 src:'images/start-new.jpg',
-                url:'#',
+                url:'product.html',
                 name:'新品介绍'
             },{
                 src:'images/start-game.jpg',
@@ -31,7 +31,7 @@ var tplData = {
         baseUrl:baseUrl,
         prizeNum:0,
         prizeTimes:2,
-        prizeRemoteNum:1,
+        prizeRemoteNum:-1,
         turnImages:[],
         list:[
             {
@@ -106,12 +106,13 @@ var tplData = {
         baseUrl:baseUrl,
         list:[
             {area:'华南',fst:40,sec:60,thd:100},
-            {area:'华南',fst:40,sec:60,thd:100},
-            {area:'华南',fst:40,sec:60,thd:100},
-            {area:'华南',fst:40,sec:60,thd:100},
-            {area:'华南',fst:40,sec:60,thd:100},
-            {area:'华南',fst:40,sec:60,thd:100},
-            {area:'华南',fst:40,sec:60,thd:100}
+            {area:'华北',fst:40,sec:60,thd:100},
+            {area:'华东',fst:40,sec:60,thd:100},
+            {area:'华中',fst:40,sec:60,thd:100},
+            {area:'西北',fst:20,sec:30,thd:50},
+            {area:'西南',fst:20,sec:30,thd:50},
+            {area:'川渝',fst:20,sec:30,thd:50},
+            {area:'南区',fst:20,sec:30,thd:50}
         ]
     },
     menu:{
@@ -172,26 +173,20 @@ var tplData = {
     topList:{
         title:'排行榜',
         baseUrl:baseUrl,
-        list:[
-            {
-                url:'#',
-                src:'images/photo-1.jpg',
-                bigSrc:'images/photo-1.jpg',
-                openId:'abc123',
-                praise:100,
-                sort:56
-            },{
-                url:'#',
-                src:'images/photo-1.jpg',
-                bigSrc:'images/photo-1.jpg',
-                openId:'abc123',
-                praise:100,
-                sort:56
-            }
-        ]
+        isLoading:false,
+        opList:['全国','华东','华中','华南','华北','西北','西南','川渝'],
+        areaId:0,
+        isListEnd:false,
+        lastId:1,
+        list:[]
     },
     homepage:{
-        title:'个人主页'
+        title:'个人主页',
+        area:'华东',
+        photoId:1314,
+        src:'./images/photo-1.jpg',
+        praise:230,
+        sort:100
     },
     discount:{
         title:'乐享钜惠',
@@ -221,17 +216,19 @@ var tplData = {
         list:[
             {
                 src:'images/show-pai.jpg',
-                url:'#',
+                url:'javascript:;',
                 name:'拍照上传'
             },{
                 src:'images/show-add.jpg',
-                url:'#',
+                url:'javascript:;',
                 name:'本地上传'
             }
         ]
     },
     preview:{
         title:'上传照片',
-        baseUrl:baseUrl
+        baseUrl:baseUrl,
+        localId:'',
+        serverId:''
     }
 }

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<!-- 设置移动端视图 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+		<meta name="HandheldFriendly" content="true">
+		<!-- 删除苹果默认的工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- 设置苹果工具栏颜色 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+		<meta name="format-detection" content="telphone=no, email=no" />
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<!-- UC应用模式 -->
+		<meta name="browsermode" content="application">
+		<!-- QQ应用模式 -->
+		<meta name="x5-page-mode" content="app">
+		<!-- windows phone 点击无高光 -->
+		<meta name="msapplication-tap-highlight" content="no">
+		<title>我们 .Show出流行美</title>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/common.css" />
+	</head>
+
+	<body>
+		<div id="mn">
+			<div class="newProduct">
+				<h1 id="js-product-title" style="position: fixed; z-index: 1000;height: 36px;width: 100%">产品列表</h1>
+				<div class="product-list-wrap" id="js-list-wrap" style="padding-top: 48px;">
+					<div class="product-left" id="js-leftList"></div>
+					<div class="product-right" id="js-rightList"></div>
+				</div>
+			</div>
+			
+			<div class="maskerLayer" id="js-masker" style="display: none;"></div>
+			<div class="bigImg" id="js-bigImg" style="display: none;"><img src="images/prod-type1/AAA1507033.JPG" id="js-img"/></div>
+			
+			<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+			<script type="text/javascript">
+				var typeTitle = {
+					"type1": "布艺系列",
+					"type2": "合金系列",
+					"type3": "套装系列",
+					"type4": "儿童系列"
+				};
+				var typeImgObj = {
+					"type1": {
+						"left": ["AAA1507033.JPG", "AAB1507003.JPG", "AAB1507004.JPG", "AAC1507001.JPG", "AAE1507028.JPG", "AAE1507029.JPG", "AAE1507030.JPG", "AAE1507031.JPG", "AAE1507032.JPG", "AAE1507033.JPG", "AAE1507034.JPG"],
+						"right": ["AAE1507046.JPG", "AAE1507045.JPG", "AAE1507044.JPG", "AAE1507043.JPG", "AAE1507042.JPG", "AAE1507041.JPG", "AAE1507040.JPG", "AAE1507039.JPG", "AAE1507038.JPG", "AAE1507037.JPG", "AAE1507036.JPG", "AAE1507035.JPG"]
+					},
+					"type2": {
+						"left": ["AAA1507003.JPG", "AAA1507004.JPG", "AAA1507005.JPG", "AAA1507010.JPG", "AAA1507018.JPG", "AAA1507020.JPG", "AAE1507004.JPG", "AAE1507006.JPG", "AAE1507014.JPG", "AAE1507019.JPG"],
+						"right": ["AAF1507025.JPG","AAK1507005.JPG", "AAK1507003.JPG", "AAH1507001.JPG", "AAG1507008.JPG", "AAG1507005.JPG", "AAG1507001.JPG", "AAF1507023.JPG", "AAF1507008.JPG", "AAF1507007.JPG", "AAF1507005.JPG"]
+					},
+					"type3": {
+						"left": ["动如脱兔.JPG", "含苞待放.JPG", "花仙子.JPG", "幻彩水晶.JPG", "浪漫之约.JPG"],
+						"right": ["霓虹光芒.JPG", "沙漠之心.JPG", "时来运转.JPG", "一花一叶.JPG", "鱼之精灵.JPG"]
+					},
+					"type4": {
+						"left": ["AAA1507025.JPG", "AAA1507026.JPG", "AAA1507029.JPG", "AAA1507031.JPG", "AAA1507038.JPG", "AAA1507039.JPG", "AAC1507005.JPG", "AAC1507008.JPG", "AAE1507021.JPG", "AAE1507024.JPG"],
+						"right": ["AAE1507027.JPG","AAK1507011.JPG", "AAK1507008.JPG", "AAK1507007.JPG", "AAK1507006.JPG", "AAH1507003.JPG", "AAH1507002.JPG", "AAF1507027.JPG", "AAF1507026.JPG", "AAE1507052.JPG", "AAE1507051.JPG"]
+					}
+				};
+				var type = (function getQueryParams() {
+					var href = document.location.href;
+					var query = '';
+					var queryObj = {};
+					if (href.indexOf('?') > -1) {
+						query = href.slice(href.indexOf('?') + 1);
+					}
+					query = query.split('&');
+					for (var i = 0, len = query.length; i < len; i++) {
+						var key = query[i].split('=')[0];
+						var value = query[i].split('=')[1];
+						queryObj[key] = value;
+					}
+					return queryObj;
+				}());
+				var setList = function(list, appendEle, type) {
+					var listHtml = [];
+					for (var i = 0, len = list.length; i < len; i++) {
+						(function(i) {
+							var src = list[i];
+							var title = src.slice(0, src.length - 4);
+							listHtml.push('<div class="list-wrap">');
+							listHtml.push('<div class="list-box">');
+							listHtml.push('<p class="list-img"><img src="images/prod-' + type + '/' + src + '" /></p>');
+							listHtml.push('<p class="list-title">' + title + '</p>');
+							listHtml.push('</div></div>');
+						}(i));
+					}
+					appendEle.empty().append(listHtml.join(''));
+				}
+				$(function() {
+					var wrap = $('#js-list-wrap');
+					var titleEle = $('#js-product-title');
+					var leftListEle = $('#js-leftList');
+					var rightListEle = $('#js-rightList');
+					var titleTxt = typeTitle[type['from']];
+					var leftListObj = typeImgObj[type['from']]['left'];
+					var rightListObj = typeImgObj[type['from']]['right'];
+					
+                    // 设置标题
+                    titleEle.html(titleTxt);
+					
+					// 遍历左边列表
+					setList(leftListObj, leftListEle, type['from']);
+					// 遍历右边列表 
+					setList(rightListObj, rightListEle, type['from']);
+					
+					// 点击返回 时，回到上一页
+					$('#mn>div>h1').bind('click', function() {
+						location.href = 'productMore.html';
+					});
+					
+					// 点击图片时，显示图片大图
+					$('#js-list-wrap img').bind('click', function() {
+						var src = $(this).attr('src');
+						console.log(src);
+						$('#js-img').attr('src', src);
+						$('#js-masker, #js-bigImg').fadeIn();
+					});
+					
+					// 隐藏弹出层
+					$('#js-masker, #js-bigImg').bind('click', function() {
+						$('#js-masker, #js-bigImg').fadeOut();
+						$('#js-img').attr('src', '');
+					});
+				});
+			</script>
+	</body>
+
+</html>

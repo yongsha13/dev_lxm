@@ -7,7 +7,7 @@
     //localStorage.setItem('openId',200);
     window.router = Router(routes).configure({ recurse: 'forward' });
     router.init();
-    if(!localStorage.getItem('openId')) location.hash = '/index/sign';
+    if(!$.cookie('openId')) location.hash = '/index/sign';
     location.hash.length>0 || (location.hash = '/index/start');
     $('#mn')
         .on('click','.back',function(){
@@ -25,7 +25,7 @@
                         url:'/orderMeeting2/OiOMForVote/getUserPic.do',
                         type:'POST',
                         dataType:'JSON',
-                        data:{activityUserId:localStorage.getItem('openId'),picId:serverId},
+                        data:{activityUserId:$.cookie('openId'),picId:serverId},
                         success:function(req){
                             location.hash = '#/index/show-success';
                             /*alert('上传成功');
@@ -48,11 +48,13 @@
                 url:'/orderMeeting2/OiOMForVote/addVote.do',
                 type:'POST',
                 dataType:'JSON',
-                data:{activityStepId:8,toUserId:tplData.showDetail.activityUserId,activityUserId:localStorage.getItem('openId')},
+                data:{activityStepId:8,toUserId:tplData.showDetail.activityUserId,activityUserId:$.cookie('openId')},
                 success:function(req){
                     if(req['errorCode']==0){
                         tplData.showList.list[index].counter++;
                         tplData.showDetail.counter++;
+                        alert('投票成功，谢谢参与');
+                        render('showDetail');
                     }else{
                         alert(req['errorMsg']);
                     }
@@ -78,7 +80,7 @@
         })
         .on('click','.sign .btn',function(){
             var data = {
-                openid:localStorage.getItem('openId'),
+                openid:$.cookie('openId'),
                 userName:$('#name').val(),
                 mobilePhone:$('#phone').val(),
                 areaId:tplData.sign.areaId
@@ -88,25 +90,28 @@
                 alert('手机号码填写不正确，请重新填写!');
                 return false;
             }
-            tplData.signSuccess['name'] = data.userName;
+            /*tplData.signSuccess['name'] = data.userName;
             tplData.signSuccess['phone'] = data.mobilePhone;
             tplData.signSuccess['area'] = tplData.sign.areaName;
             tplData.signError['name'] = data.userName;
             tplData.signError['phone'] = data.mobilePhone;
-            tplData.signError['area'] = tplData.sign.areaName;
+            tplData.signError['area'] = tplData.sign.areaName;*/
             ajax('signin.do',data,function(req){
-                localStorage.setItem('openId',req['userInfo']['activityUserId']);
-                localStorage.setItem('userName',data.userName);
-                localStorage.setItem('mobilePhone',data.mobilePhone);
-                localStorage.setItem('area',tplData.sign.areaName);
-                localStorage.setItem('serialNo',req['userInfo']['serialNo']);
+                $.cookie('openId',req['userInfo']['activityUserId']);
+                $.cookie('userName',data.userName);
+                $.cookie('mobilePhone',data.mobilePhone);
+                $.cookie('area',tplData.sign.areaName);
+                $.cookie('serialNo',req['userInfo']['serialNo']);
                 tplData.signSuccess.num = req['userInfo']['serialNo'];
                 tplData.signError.num = req['userInfo']['serialNo'];
-                if(req['userInfo']['isChecked']=='否'){
+                console.log([req['userInfo']['isChecked']=='否',req['userInfo']['isChecked']=='是',req]);
+                /*if(req['userInfo']['isChecked']=='否'){
                     location.hash = '#/index/sign/error';
-                }
-                if(req['userInfo']['isChecked']=='是'){
+                }*/
+                if(req['userInfo']['isChecked']=='true'){
                     location.hash = '#/index/sign/success';
+                }else{
+                    location.hash = '#/index/sign/error';
                 }
             },function(){
             });
@@ -135,7 +140,7 @@
                 for(var i=0;i<tplData.topList.list.length;i++)
                     tplData.topList.list[i]['canVote']=='0';
             }*/
-            ajax('vote.do',{activityUserId:localStorage.getItem('openId'),stepId:tplData.topList.stepId,toUserId:id},function(req){
+            ajax('vote.do',{activityUserId:$.cookie('openId'),stepId:tplData.topList.stepId,toUserId:id},function(req){
                 if(req['errorCode']==0){
                     tplData.topList.list[index]['canVote'] = '0';
                     tplData.topList.list[index]['counter']++;
@@ -149,6 +154,10 @@
 
             //console.log($(this).closest('li').data('id'));
         })
+
+    $(window).scroll(function(){
+        console.log('scroll');
+    });
 });
 
 
@@ -201,7 +210,7 @@ function doResult() {
     //alert("摇动了");
     if(w<18)w += 1;
     else{
-        ajax('race.do',{stepId:6,activityUserId:localStorage.getItem('openId'),percent:100},function(){
+        ajax('race.do',{stepId:6,activityUserId:$.cookie('openId'),percent:100},function(){
             location.hash='#/index/shake-success'
         });
     }
@@ -214,3 +223,42 @@ function doResult() {
         document.getElementById("loading").className = "loading";
     }, 1000);*/
 }
+
+jQuery.cookie = function(name, value, options) {
+    if (typeof value != 'undefined') {
+        options = options || {};
+        if (value === null) {
+            value = '';
+            options = $.extend({}, options);
+            options.expires = -1;
+        }
+        var expires = '';
+        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+            var date;
+            if (typeof options.expires == 'number') {
+                date = new Date();
+                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+            } else {
+                date = options.expires;
+            }
+            expires = '; expires=' + date.toUTCString();
+        }
+        var path = options.path ? '; path=' + (options.path) : '';
+        var domain = options.domain ? '; domain=' + (options.domain) : '';
+        var secure = options.secure ? '; secure' : '';
+        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+    } else {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+};

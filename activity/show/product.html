@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<!-- 设置移动端视图 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+		<meta name="HandheldFriendly" content="true">
+		<!-- 删除苹果默认的工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- 设置苹果工具栏颜色 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+		<meta name="format-detection" content="telphone=no, email=no" />
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<!-- UC应用模式 -->
+		<meta name="browsermode" content="application">
+		<!-- QQ应用模式 -->
+		<meta name="x5-page-mode" content="app">
+		<!-- windows phone 点击无高光 -->
+		<meta name="msapplication-tap-highlight" content="no">
+		<title>我们 .Show出流行美</title>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/common.css" />
+	</head>
+
+	<body>
+		<div id="mn">
+			<div class="newProduct">
+				<h1>新品介绍</h1>
+				<div class="product-header">
+					<img src="images/slider-title.png" />
+				</div>
+				<div class="product-slide">
+					<img src="images/recommend-01.png" class="slideImage slideImage1" />
+					<img src="images/recommend-02.png" class="slideImage slideImage2" />
+					<img src="images/recommend-03.png" class="slideImage slideImage3" />
+					<p id="js-product-title" class="product-title">
+						<span>红粉知己</span>
+					</p>
+					<div class="l-pageSlider" style="display: none;">
+						<div class="m-pageSlider">
+							<a href="javascript:" data-des="清爽透亮的淡粉色系，是夏日里一阵清新怡人的微风，给人一种宁静的舒适感觉。纱，进口网，水晶亮片，用不同的材质打造透视、梦幻、不一样的范冰冰同款。">红粉知己</a>
+							<a href="javascript:" data-des="亮红色的水晶，新潮的果冻颜色与经典的优雅颜色搭配，仿佛在诉说一场充满想象、惊心动魄的爱情故事。流行的几何水晶手缝钻，双色蝴蝶结——简约大气，层次分明。">蝶恋花</a>
+							<a href="javascript:" data-des="LED灯发饰的极致之作。含蓄的无色系基调，在铜材+锆石的基础上，融合了彩色LED灯，呈现霓虹光芒，让一切都来得那么自然清新，表达得那么纯粹溢彩。">霓虹光芒</a>
+							<a href="javascript:" data-des="或浅或淡的肤色水晶，用最自然的色调演绎最幻变、最斑斓的光芒。全铜制作，水晶手工镶嵌，从不同的角度折射出不同的光芒，让女人魅力四射。">幻彩水晶</a>
+							<a href="javascript:" data-des="左右摇曳的身姿，通透光亮的色彩，以一点为中心，不同的纯度、明度、深浅，好似一位独立的个体所表现的多面性格和潜力的无限延展性，看似矛盾却又如此和谐。">时来运转</a>
+						</div>
+					</div>
+					<div class="slide-wrap">
+						
+						<div class="l-pageimg">
+							<ul class="m-pageimg">
+								<li>
+									<p><img src="images/prod-type1/AAE1507034.JPG" /></p>
+								</li>
+								<li>
+									<p><img src="images/prod-type1/AAE1507042.JPG" /></p>
+								</li>
+								<li>
+									<p><img src="images/prod-type3/幻彩水晶.JPG" /></p>
+								</li>
+								<li>
+									<p><img src="images/prod-type3/一花一叶.JPG" /></p>
+								</li>
+								<li>
+									<p><img src="images/prod-type3/时来运转.JPG" /></p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<a href="javascript:;" class="m-switch btn_prev" id="btn_prev"></a>
+					<a href="javascript:;" class="m-switch btn_next" id="btn_next"></a>
+				</div>
+				<div class="product-more">
+					<a href="productMore.html"><img src="images/slide-btn.png" /></a>
+				</div>
+				<div class="product-des-wrap">
+					<p class="product-line"><img src="images/slide-line.png" /></p>
+					<p class="product-des" id="js-des">清爽透亮的淡粉色系，是夏日里一阵清新怡人的微风，给人一种宁静的舒适感觉。纱，进口网，水晶亮片，用不同的材质打造透视、梦幻、不一样的范冰冰同款。</p>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/jquery.touchSlider.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(".l-pageimg").touchSlider({
+					flexible: true,
+					speed: 300,
+					btn_prev: $("#btn_prev"),
+					btn_next: $("#btn_next"),
+					paging: $(".m-pageSlider a"),
+					counter: function(e) {
+						var currentNum = e.current;
+						var currentEle = $(".m-pageSlider a").eq(currentNum - 1);
+						var title = currentEle.html();
+						var des = currentEle.attr('data-des');
+						
+						if (currentNum == 2) {
+							$('#js-product-title').addClass('lineNum');
+						} else {
+							$('#js-product-title').removeClass('lineNum');
+						}
+						
+						$('#js-product-title span').html(title);
+						$('#js-des').html(des);
+					}
+				});
+
+				timer = setInterval(function() {
+					$("#btn_next").bind('click');
+					$("#btn_next").trigger('click');
+				}, 5000);
+				$(".l-pageimg").bind("touchstart", function() {
+					clearInterval(timer)
+				}).bind("touchend", function() {
+					timer = setInterval(function() {
+						$("#btn_next").bind('click');
+						$("#btn_next").trigger('click');
+					}, 5000);
+				});
+				
+				// 点击返回 时，回到上一页
+				$('#mn>div>h1:before').bind('click', function() {
+					window.history.back();
+				});
+				
+			});
+		</script>
+	</body>
+
+</html>

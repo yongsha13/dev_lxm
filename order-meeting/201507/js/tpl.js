@@ -124,8 +124,12 @@ var TPL = {
         '<div class="sign success">\
             <section>\
                 <img src="{{:baseUrl}}images/success.png" alt=""/>\
+                {{if num&&num!="null"}}\
                 <h2>尊敬的加盟商，您已经签到成功。</h2>\
-                <p>{{if num&&num!="null"}}房间号：{{:num}}{{else}}请联系工作人员{{/if}}</p>\
+                <p>房间号：{{:num}}</p>\
+                {{else}}\
+                <h2>尊敬的加盟商，您已签到成功，请找工作人员为您办理相关手续。</h2>\
+                {{/if}}\
                 <img src="{{:baseUrl}}images/back-ava.png" alt="" class="icon"/>\
                 <p>{{:name}}</p>\
                 <img src="{{:backUrl}}images/back-tel.png" alt="" class="icon"/>\
@@ -150,8 +154,11 @@ var TPL = {
     topList:
         '<div class="top-list">\
             <section>\
+                <a href="javascript:;" class="back">《</a>\
                 <h2>{{:title}}</h2>\
-                <ul>{{include tmpl="liTopList"/}}</ul>\
+                {{if stepStatus=="1"}}<ul>{{include tmpl="liTopList"/}}</ul>{{/if}}\
+                {{if stepStatus=="0"}}<p>活动还未开始，请关注现场活动时间！</p>{{/if}}\
+                {{if stepStatus=="2"}}<p>活动已经结束，感谢您的关注！</p>{{/if}}\
             </section>\
         </div>',
     homepage:
