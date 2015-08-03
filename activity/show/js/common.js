@@ -27,7 +27,7 @@
                 }
             });
         })
-        .on('click','.game-address .btn',function(){
+        .on('click','.js-game-address-btn',function(){
             ajax('luckyService.do',{
                 opType:'saveLuckyUserInfo',
                 fromOpenid:params['openid'],
@@ -153,7 +153,7 @@ var game = {
                     else if(req['award_3']=='1')tplData.game.prizeRemoteNum=3;
                     else if(req['award_0']=='1')tplData.game.prizeRemoteNum=0;
                     else tplData.game.prizeRemoteNum=-1;
-
+                    tplData.gamePrize.prizes[0].times = req['leftLuckyDraw'];
                     if(tplData.game.prizeRemoteNum<0)
                         $('#mn .game .box').html(req['errorMsg']);
                     else{

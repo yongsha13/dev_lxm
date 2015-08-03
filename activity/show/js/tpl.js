@@ -155,7 +155,7 @@ var TPL = {
                     <p><label for="address">收货地址:</label>\
                     <textarea id="address"></textarea></p>\
                     </li>\
-                    <a href="#" class="btn red" style="margin-top: 20px;">保存</a>\
+                    <a href="#" class="btn red js-game-address-btn" style="margin-top: 20px;">保存</a>\
                 </ul>\
             </form>\
         </div>',

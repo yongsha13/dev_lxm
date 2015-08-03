@@ -9,6 +9,7 @@ var TPL = {
         </div>',
     hair:
 '<div><section>\
+    {{if hairEffects}}\
     <div class="banner">\
         <div class="pic-slider">\
             <div class="ctrl">\
@@ -18,13 +19,18 @@ var TPL = {
             </div>\
             <ul>\
             {{for hairEffects}}\
-                <li><span class="img_{{:#index+1}}"><img src="{{:#parent.parent.data.url}}{{:savePath}}" alt="{{:mediaName}}"/></span></li>\
+                <li>\
+                <span class="img_{{:#index+1}}">\
+                <img src="{{:#parent.parent.data.url}}{{:savePath}}" alt="{{:mediaName}}"/>\
+                </span>\
+                </li>\
             {{/for}}\
             </ul>\
             <a href="javascript:;" class="btn-prev"><</a>\
             <a href="javascript:;" class="btn-next">></a>\
         </div>\
     </div>\
+    {{/if}}\
     <h2 class="red"><em>{{:data.hairdoCode}}</em>{{:data.hairdoName}}</h2>\
     {{if hairTypes}}\
     <ul class="detail">\
@@ -72,6 +78,7 @@ var TPL = {
         {{/if}}\
     </ul>\
     {{/if}}\
+    {{if hairEffects}}\
     <h2>发型效果图</h2>\
     <ul class="pic-2 js-pic">\
     {{for hairEffects}}\
@@ -82,6 +89,7 @@ var TPL = {
         {{/if}}\
     {{/for}}\
     </ul>\
+    {{/if}}\
     {{if hairDetails}}\
     <h2>细节图</h2>\
     <ul class="pic-list js-pic">\
